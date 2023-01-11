@@ -2,8 +2,6 @@
 
 const db = require("./db");
 const User = require("./models/User");
-
-const User = require('./models/User')
 const Orders = require('./models/Products')
 const Products = require('./models/Products')
 const CreditCard = require('./models/CreditCard')
