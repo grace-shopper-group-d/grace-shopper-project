@@ -12,7 +12,7 @@ router.get('/', async (req, res, next) => {
     }
 })
 
-//router to find single product
+//router to find single product based on id
 router.get('/:id', async (req, res, next) => {
     try {
         const product = await Products.findByPk(req.params.id)
