@@ -5,7 +5,7 @@ const { models: { Products } } = require('../db')
 router.get('/', async (req, res, next) => {
     try {
         const products = await Products.findAll()
-        res.json(products)
+        res.send(products)
     }
     catch (err) {
         next(err)
