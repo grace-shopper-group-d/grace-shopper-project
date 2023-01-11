@@ -4,8 +4,8 @@ const db = require("./db");
 const User = require("./models/User");
 const Orders = require('./models/Products')
 const Products = require('./models/Products')
-// const CreditCard = require('./models/CreditCard')
-// const Cart = require('./models/Cart')
+const CreditCard = require('./models/CreditCard')
+const Cart = require('./models/Cart')
 
 
 
@@ -17,15 +17,15 @@ User.hasOne.Cart
 User.hasOne.CreditCard
 
 // Cart Associations
-// Cart.hasMany.Products
-// Cart.BelongsTo.User
+Cart.hasMany.Products
+Cart.BelongsTo.User
 
-// // Orders Associations
-// Orders.belongsTo.User
-// Orders.hasMany.Products
+// Orders Associations
+Orders.belongsTo.User
+Orders.hasMany.Products
 
-// // CreditCard Assocation
-// CreditCard.belongsTo.User
+// CreditCard Assocation
+CreditCard.belongsTo.User
 
 // Products Association
 Products.belongsToMany.Cart
@@ -43,8 +43,8 @@ module.exports = {
     User,
     Orders,
     Products,
-  //   CreditCard,
-  //   Cart,
+    CreditCard,
+    Cart,
   },
 }
 
