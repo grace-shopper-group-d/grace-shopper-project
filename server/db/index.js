@@ -24,7 +24,7 @@ Cart.belongsTo.User
 Orders.belongsTo.User
 Orders.hasMany.Products
 
-// CreditCard Assocation
+// CreditCard Associations
 CreditCard.belongsTo.User
 
 // Products Association
