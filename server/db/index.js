@@ -10,16 +10,16 @@ const Cart = require('./models/Cart')
 
 //associations could go here!
 
-// User Associations 
+// User Associations
 User.hasMany.Orders
 User.hasOne.Cart
 User.hasOne.CreditCard
 
-// Cart Associations 
+// Cart Associations
 Cart.hasMany.Products
 Cart.BelongsTo.User
 
-// Orders Associations 
+// Orders Associations
 Orders.belongsTo.User
 Orders.hasMany.Products
 
