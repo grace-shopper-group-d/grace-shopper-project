@@ -18,7 +18,7 @@ User.hasOne.CreditCard
 
 // Cart Associations
 Cart.hasMany.Products
-Cart.BelongsTo.User
+Cart.belongsTo.User
 
 // Orders Associations
 Orders.belongsTo.User

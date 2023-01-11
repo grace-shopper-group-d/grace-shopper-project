@@ -50,8 +50,8 @@ async function seed() {
   User.bulkCreate(users)
   Products.bulkCreate(products)
 
-  console.log(`seeded ${users.length} users`)
-  console.log(`seeded successfully`)
+  console.log(`successfully seeded ${users.length} users`)
+  console.log(`successfully seeded ${products.length} products`)
 }
 
 seed()
