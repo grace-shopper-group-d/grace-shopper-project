@@ -8,6 +8,7 @@ const CreditCard = require('./models/CreditCard')
 const Cart = require('./models/Cart')
 
 
+
 //associations could go here!
 
 // User Associations
@@ -17,7 +18,7 @@ User.hasOne.CreditCard
 
 // Cart Associations
 Cart.hasMany.Products
-Cart.BelongsTo.User
+Cart.belongsTo.User
 
 // Orders Associations
 Orders.belongsTo.User
@@ -37,6 +38,7 @@ Products.belongsToMany.Orders
 
 module.exports = {
   db,
+
   models: {
     User,
     Orders,
@@ -45,3 +47,4 @@ module.exports = {
     Cart,
   },
 }
+

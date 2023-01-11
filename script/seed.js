@@ -1,7 +1,7 @@
 'use strict'
 
-const {db} = require('../server/db');
-const {User} = require('../server/db')
+const {db, models:{User, Products}} = require('../server/db');
+// const {} = require('../server/db')
 const {faker} = require('@faker-js/faker')
 
 /**
@@ -13,6 +13,7 @@ const {faker} = require('@faker-js/faker')
   let users = [];
   for (let i = 0; i < 100; i++){
     users.push({
+      isAdmin: faker.datatype.boolean(),
       password: faker.internet.password(8),
       address: faker.address.streetAddress(true),
       telephone: faker.phone.number(),
@@ -24,17 +25,33 @@ const {faker} = require('@faker-js/faker')
   return users
 }
 
+function createProducts(){
+  let products = [];
+  for (let i = 0; i < 100; i++){
+    products.push({
+      name: faker.helpers.unique(faker.commerce.productName),
+      quantity: faker.random.numeric(3),
+      description: faker.commerce.productDescription(),
+      price: faker.datatype.number({min: 1, max: 1000, precision:.01})
+    })
+  }
+  return products
+}
+
 async function seed() {
   await db.sync({ force: true }) // clears db and matches models to tables
   console.log('db synced!')
 
   // Creating Users
   const users = createUsers();
+  // Creating Products
+  const products = createProducts()
 
   User.bulkCreate(users)
+  Products.bulkCreate(products)
 
-  console.log(`seeded ${users.length} users`)
-  console.log(`seeded successfully`)
+  console.log(`successfully seeded ${users.length} users`)
+  console.log(`successfully seeded ${products.length} products`)
 }
 
 seed()
