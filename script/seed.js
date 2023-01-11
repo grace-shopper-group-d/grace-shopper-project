@@ -1,7 +1,6 @@
 'use strict'
 
 const {db, models:{User, Products, Cart, CreditCard}} = require('../server/db');
-// const {} = require('../server/db')
 const {faker} = require('@faker-js/faker');
 
 /**
