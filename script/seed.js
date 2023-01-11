@@ -1,7 +1,7 @@
 'use strict'
 
-const {db} = require('../server/db');
-const {User, Products} = require('../server/db')
+const {db, models:{User, Products}} = require('../server/db');
+// const {} = require('../server/db')
 const {faker} = require('@faker-js/faker')
 
 /**
@@ -29,10 +29,10 @@ function createProducts(){
   let products = [];
   for (let i = 0; i < 100; i++){
     products.push({
-      name: faker.commerce.productName(),
+      name: faker.helpers.unique(faker.commerce.productName),
       quantity: faker.random.numeric(3),
       description: faker.commerce.productDescription(),
-      price: faker.commerce.price()
+      price: faker.datatype.number({min: 1, max: 1000, precision:.01})
     })
   }
   return products
