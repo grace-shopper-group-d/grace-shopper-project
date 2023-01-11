@@ -25,7 +25,7 @@ CreditCard.belongsTo.User
 
 // Products Association
 Products.belongsToMany.Orders
-Products.belongToMany.User
+Products.belongsToMany.User
 
 
 
