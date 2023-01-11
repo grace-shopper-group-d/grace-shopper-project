@@ -22,7 +22,7 @@ const User = db.define('user', {
 
   },
   telephone: {
-    type: Sequelize.NUMBER,
+    type: Sequelize.STRING,
     allowNull: false,
   },
   email: {
