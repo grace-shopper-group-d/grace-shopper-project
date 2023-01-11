@@ -8,8 +8,8 @@ const Order = db.define('order', {
     unique: true,
     allowNull: false,
   },
-  total: {
-    type: Sequelize.INTEGER,
+  total:{
+    type: Sequelize.DECIMAL,
     allowNull: false
   },
   Date: {
