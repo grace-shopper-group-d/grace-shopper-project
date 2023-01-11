@@ -17,7 +17,7 @@ User.hasOne.CreditCard
 
 // Cart Associations
 Cart.hasMany.Products
-Cart.BelongsTo.User
+Cart.belongsTo.User
 
 // Orders Associations
 Orders.belongsTo.User
@@ -29,10 +29,6 @@ CreditCard.belongsTo.User
 // Products Association
 Products.belongsToMany.Cart
 Products.belongsToMany.Orders
-
-
-
-
 
 
 module.exports = {
