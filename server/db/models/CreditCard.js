@@ -96,8 +96,8 @@ const hashCreditCard = async (creditCard) => {
     }
 }
 
-CreditCard.beforeCreate(hashCreditCard)
-CreditCard.beforeUpdate(hashCreditCard)
-CreditCard.beforeBulkCreate((creditCards) => {
-    creditCards.forEach(hashCreditCard)
-})
+// CreditCard.beforeCreate(hashCreditCard)
+// CreditCard.beforeUpdate(hashCreditCard)
+// CreditCard.beforeBulkCreate((creditCards) => {
+//     creditCards.forEach(hashCreditCard)
+// })
