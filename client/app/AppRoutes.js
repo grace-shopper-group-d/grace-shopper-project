@@ -34,7 +34,7 @@ const AppRoutes = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Register />} />
         </Routes>
-      )
+      {/* ) */}
     </div>
   );
 };

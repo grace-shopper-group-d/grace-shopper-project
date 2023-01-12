@@ -1,6 +1,6 @@
 
 
-/*  this is where authar css start */
+/*  this is where Arthur css start */
 .productsPage {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -50,6 +50,8 @@ label {
 nav a {
   display: inline-block;
   margin: 1em;
+  /*  this is where we can change the coloring of the login and sign-up  */
+  color: #000;
 }
 
 form div {
@@ -64,6 +66,7 @@ form div {
   display: flex;
   align-items: center;
   justify-content: start;
+  background-color: #407076;
 }
 
 .top-center{
@@ -71,11 +74,15 @@ form div {
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #000;
+
 }
 
 .top-item{
   margin: 0 1em;
   text-decoration: none;
+  /* where we can adjust the colors for the center nav */
+  color: #000
 }
 
 .top-right{
@@ -83,6 +90,16 @@ form div {
   display: flex;
   align-items: center;
   justify-content: end;
+  background-color: #407076;
+
+}
+
+
+nav a:hover{
+  color: #698996;
+}
+nav a:after{
+  color: #bebebe;
 }
 
 .userInfo{
