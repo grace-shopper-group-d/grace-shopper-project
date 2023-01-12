@@ -7,7 +7,10 @@
   grid-template-rows: repeat(3, 1fr);
   grid-column-gap: 10px;
   grid-row-gap: 10px;
+  background:linear-gradient(rgba(255,255,255,0.5),rgba(255,255,255,0.5)), url("https://assets-global.website-files.com/600fe6e1ff56087409a9f096/605b5a558848493df14d2d13_ecommerce-product-photography.jpg")  no-repeat center fixed ;
+  background-size: cover;
 }
+
 .productCard {
   display: flex;
   align-items: center;
@@ -67,6 +70,8 @@ form div {
   align-items: center;
   justify-content: start;
   background-color: #407076;
+  padding: 10px;
+  font-family: Arial;
 }
 
 .top-center{
@@ -94,12 +99,13 @@ form div {
 
 }
 
-
+/* hover effect for both the login and center nav bar section */
 nav a:hover{
   color: #698996;
 }
-nav a:after{
-  color: #bebebe;
+
+.top-item:hover{
+  color: #698996;
 }
 
 .userInfo{
