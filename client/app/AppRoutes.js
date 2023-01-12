@@ -8,13 +8,15 @@ import Home from '../features/home/Home';
 import Register from '../features/auth/Register';
 import Login from '../features/auth/Login';
 import { me } from './store';
+import Checkout from '../features/checkout/Checkout';
 
 /**
  * COMPONENT
  */
 
 const AppRoutes = () => {
-  const isLoggedIn = useSelector((state) => !!state.auth.me.id);
+  // const isLoggedIn = useSelector((state) => !!state.auth.me.id);
+  const isLoggedIn = true
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -28,13 +30,14 @@ const AppRoutes = () => {
           <Route path="/" element={<Home />} />
           <Route to="/home" element={<Home />} />
           <Route path="/products" element={<AllProducts />} />
+          <Route path="/checkout" element={<Checkout />} />
         </Routes>
-       {/* ) : ( */}
+        ) : (
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Register />} />
         </Routes>
-      )
+      )}
     </div>
   );
 };
