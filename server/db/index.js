@@ -20,7 +20,7 @@ User.hasMany.Products
 Orders.belongsTo.User
 Orders.hasMany.Products
 
-// CreditCard Assocation
+// CreditCard Associations
 CreditCard.belongsTo.User
 
 // Products Association
