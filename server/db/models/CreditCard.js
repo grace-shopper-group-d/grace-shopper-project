@@ -1,5 +1,8 @@
 const Sequelize = require('sequelize')
 const db = require('../db')
+// const bcrypt = require('bcrypt');
+
+// const SALT_ROUNDS = 5;
 
 const CreditCard = db.define('creditCard', {
     //name as appears on card
@@ -79,3 +82,22 @@ const CreditCard = db.define('creditCard', {
 })
 
 module.exports = CreditCard
+
+// we need to encrypt credit card info
+// const hashCreditCard = async (creditCard) => {
+//     if (creditCard.changed('cardNumber')) {
+//         creditCard.cardNumber = await bcrypt.hash(creditCard.cardNumber, SALT_ROUNDS)
+//     }
+//     if (creditCard.changed('securityCode')) {
+//         creditCard.securityCode = await bcrypt.hash(creditCard.securityCode, SALT_ROUNDS)
+//     }
+//     if (creditCard.changed('expirationDate')) {
+//         creditCard.expirationDate = await bcrypt.hash(creditCard.expirationDate, SALT_ROUNDS)
+//     }
+// }
+
+// CreditCard.beforeCreate(hashCreditCard)
+// CreditCard.beforeUpdate(hashCreditCard)
+// CreditCard.beforeBulkCreate((creditCards) => {
+//     creditCards.forEach(hashCreditCard)
+// })

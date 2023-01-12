@@ -13,9 +13,16 @@ const Navbar = () => {
   };
 
   return (
-    <div>
-      <h1>FS-App-Template</h1>
-      <nav>
+    <div className="top">
+      <div className="top-left">
+      <h1>GraceShopper</h1>
+      <div className='top-center'>
+      <Link className='top-item' to="/home">Home</Link>
+      <Link className='top-item' to="/products">Products</Link>
+      <Link className='top-item' to="/cart">Cart</Link>
+      <Link className='top-item' to="/orders">Orders</Link>
+      </div>
+      <nav className='top-right'>
         {isLoggedIn ? (
           <div>
             {/* The navbar will show these links after you log in */}
@@ -25,13 +32,14 @@ const Navbar = () => {
             </button>
           </div>
         ) : (
-          <div>
+          <div className='userInfo'>
             {/* The navbar will show these links before you log in */}
             <Link to="/login">Login</Link>
             <Link to="/signup">Sign Up</Link>
           </div>
         )}
       </nav>
+      </div>
       <hr />
     </div>
   );

@@ -19,3 +19,74 @@ form div {
   margin: 1em;
   display: inline-block;
 }
+
+.top-left {
+  flex: 3;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+.top-center {
+  flex: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.top-item {
+  margin: 0 1em;
+  text-decoration: none;
+}
+
+.top-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.productsPage {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
+
+.productCard {
+  padding: .5em;
+  border-radius: 27px;
+  background: #e0e0e0;
+  box-shadow: 47px 47px 94px #bebebe, -47px -47px 94px #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.productCard:hover {
+  border-radius: 27px;
+  background: #e0e0e0;
+  box-shadow: inset 47px 47px 94px #bebebe, inset -47px -47px 94px #ffffff;
+}
+
+.productCard:active {
+  transform: scale(0.98);
+ }
+
+.cardName .cardPrice{
+  font-family: Impact, 'Arial Narrow Bold', sans-serif;
+  font-size: 0.9em;
+  left: 0.625em;
+  bottom: 0.625em;
+}
+
+.cardPrice{
+  font-weight: 900;
+}

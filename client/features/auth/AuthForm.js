@@ -15,49 +15,20 @@ const AuthForm = ({ name, displayName }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
     const formName = evt.target.name;
-    const first_Name = evt.target.firstName.value;
-    const last_Name = evt.target.lastName.value;
-    const email = evt.target.email.value;
-    const telephone = evt.target.telephone.value;
-    const address = evt.target.address.value;
+    const username = evt.target.username.value;
     const password = evt.target.password.value;
-    dispatch(authenticate({ first_Name, last_Name, email, telephone, address, password, method: formName }));
+    dispatch(authenticate({ username, password, method: formName }));
   };
 
   return (
     <div>
       <form onSubmit={handleSubmit} name={name}>
         <div>
-          <label htmlFor="firstName">
-            <small>First Name</small>
+          <label htmlFor="username">
+            <small>Username</small>
           </label>
-          <input name="firstName" type="text" />
+          <input name="username" type="text" />
         </div>
-        <div>
-          <label htmlFor="lastName">
-            <small>Last Name</small>
-          </label>
-          <input name="lastName" type="text" />
-        </div>
-        <div>
-          <label htmlFor="email">
-            <small>Email</small>
-          </label>
-          <input name="email" type="text" />
-        </div>
-        <div>
-          <label htmlFor="telephone">
-            <small>Telephone</small>
-          </label>
-          <input name="telephone" type="text" />
-        </div>
-        <div>
-          <label htmlFor="address">
-            <small>Address</small>
-          </label>
-          <input name="address" type="text" />
-        </div>
-
         <div>
           <label htmlFor="password">
             <small>Password</small>
@@ -67,7 +38,6 @@ const AuthForm = ({ name, displayName }) => {
         <div>
           <button type="submit">{displayName}</button>
         </div>
-        {/* {error && <div> {error} </div>} */}
       </form>
     </div>
   );

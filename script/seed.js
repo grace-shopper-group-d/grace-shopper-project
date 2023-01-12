@@ -31,7 +31,7 @@ function createProducts(){
       name: faker.helpers.unique(faker.commerce.productName),
       quantity: faker.random.numeric(3),
       description: faker.commerce.productDescription(),
-      price: faker.datatype.number({min: 1, max: 1000, precision:.01})
+      price: faker.datatype.number({min: 1, max: 1000, precision:.01}),
     })
   }
   return products
@@ -92,7 +92,7 @@ async function seed() {
   console.log('carts successfully seeded')
 }
 
-seed()
+// seed()
 
 
 /*
