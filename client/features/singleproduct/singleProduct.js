@@ -1,24 +1,24 @@
-import React, { useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {useParams} from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { fetchProduct, singleProduct } from './singleProductSlice';
 
-const singleProduct = () => {
-    const {productId} = useParams();
-    const product = useSelector(singleProduct)
+const SingleProduct = () => {
+    const { productId } = useParams();
+    const product = useSelector(singleProduct);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(fetchProduct(productId))
-    },[dispatch, productId])
+    }, [dispatch, productId])
 
     return (
         <div className='product'>
+            <img src={`/${product.imageUrl}`} />
             <h2>Name: {product.name}</h2>
-            <h3>Quantity: {product.quantity}</h3>
-            <h4>Description: {product.description}</h4>
-            <h5>Price: {product.price}</h5>
+            <h2>Price: {product.price}</h2>
         </div>
     )
 }
 
-export default singleProduct
+export default SingleProduct;
