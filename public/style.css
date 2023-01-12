@@ -158,6 +158,12 @@ nav a:hover{
   padding: 10px;
 }
 
+/* hover color change with border */
+.loginButton:hover{
+  background-color: #CE8147;
+  border:1px solid #000;
+}
+
 .loginRegisterButton {
   position: absolute;
   top: 60px;
