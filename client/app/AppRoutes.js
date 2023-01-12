@@ -23,18 +23,18 @@ const AppRoutes = () => {
 
   return (
     <div>
-      {isLoggedIn ? (
+      {/* {isLoggedIn ? ( */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route to="/home" element={<Home />} />
           <Route path="/products" element={<AllProducts />} />
         </Routes>
-       ) : (
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Register />} />
-        </Routes>
-      )}
+      {/* //  ) : (
+      //   <Routes>
+      //     <Route path="/login" element={<Login />} />
+      //     <Route path="/signup" element={<Register />} />
+      //   </Routes>
+      // )} */}
     </div>
   );
 };
