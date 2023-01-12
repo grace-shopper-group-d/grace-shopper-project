@@ -1,6 +1,6 @@
 'use strict'
 
-const {db, models:{User, Products, Cart, CreditCard}} = require('../server/db');
+const {db, models:{User, Products, Cart, CreditCard, OrderProducts}} = require('../server/db');
 const {faker} = require('@faker-js/faker');
 
 /**
@@ -91,6 +91,8 @@ async function seed() {
   console.log(`successfully seeded ${creditCards.length} credit cards`)
   console.log('carts successfully seeded')
 }
+
+
 
 seed()
 

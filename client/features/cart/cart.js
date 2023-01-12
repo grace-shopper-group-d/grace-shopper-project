@@ -30,24 +30,24 @@ const Cart = () => {
   return (
     <>
     <h3 id='cart-header' >{`You have (4) Items in Your Cart`}</h3>
-    <div id='item1'>
-      <div> 
-        <img className="cart-item-container" src={bike.imgUrl} />
-        <div className='cart-item-img'>`{`${bike.name}`}</div>
+    <div  id='cart-items-container'>
+      <div className='cart-item-container'> 
+        <img className="cart-item-img" src={bike.imgUrl} />
+        <div className='cart-item-name'>`{`${bike.name}`}</div>
         <div className='cart-item-price'>{`${bike.price}`}</div>
         <div className='cart-item-price'>{`Quantity`}</div>
         <div className='cart-item-price'>{`Total`}</div>
       </div>
-      <div id='item2'> 
-        <img className="cart-item-container" src={bike.imgUrl} />
-        <div className='cart-item-img'>`{`${bike.name}`}</div>
+      <div className='cart-item-container' id='item2'> 
+        <img className="cart-item-img" src={bike.imgUrl} />
+        <div className='cart-item-name'>`{`${bike.name}`}</div>
         <div className='cart-item-price'>{`${bike.price}`}</div>
-        <div className='cart-item-price'>{`Quantity`}</div>
+        <div className='cart-item-price'>{`1`}</div>
         <div className='cart-item-price'>{`Total`}</div>
       </div>
-      <div id='item3'> 
-        <img className="cart-item-container" src={bike.imgUrl} />
-        <div className='cart-item-img'>`{`${bike.name}`}</div>
+      <div className='cart-item-container' id='item3'> 
+        <img className="cart-item-img" src={bike.imgUrl} />
+        <div className='cart-item-name'>`{`${bike.name}`}</div>
         <div className='cart-item-price'>{`${bike.price}`}</div>
         <div className='cart-item-price'>{`Quantity`}</div>
         <div className='cart-item-price'>{`Total`}</div>
