@@ -1,77 +1,6 @@
-body {
-  font-family: sans-serif;
-}
 
-a {
-  text-decoration: none;
-}
 
-label {
-  display: block;
-}
-
-nav a {
-  display: inline-block;
-  margin: 1em;
-}
-
-form div {
-  margin: 1em;
-  display: inline-block;
-}
-
-.top-left {
-  flex: 3;
-  display: flex;
-  align-items: center;
-  justify-content: start;
-}
-
-.top-center {
-  flex: 3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.top-item {
-  margin: 0 1em;
-  text-decoration: none;
-}
-
-.top-right {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: end;
-}
-
-.userInfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(
-      rgba(255, 255, 255, 0.5),
-      rgba(255, 255, 255, 0.5)
-    ),
-    url("https://img.freepik.com/premium-vector/hand-painted-background-violet-orange-colours_23-2148427578.jpg?w=2000");
-  background-size: cover;
-}
-
-.registerTitle {
-  font-size: 50px;
-}
-
-.registerForm {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-}
-
-.registerForm > label {
-  margin: 10 px 0;
-}
+/*  this is where authar css start */
 .productsPage {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -102,6 +31,173 @@ form div {
 
 .cardPrice {
   font-weight: 900;
+}
+
+/*  this is where kevin css starts  */
+
+body {
+  font-family: sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+label {
+  display: block;
+}
+
+nav a {
+  display: inline-block;
+  margin: 1em;
+}
+
+form div {
+  margin: 1em;
+  display: inline-block;
+}
+
+/* Navigation Bar */
+
+.top-left{
+  flex: 3;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+.top-center{
+  flex: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.top-item{
+  margin: 0 1em;
+  text-decoration: none;
+}
+
+.top-right{
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.userInfo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Login Page */
+/* container will be a hold login*/
+
+.login {
+  height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(rgba(255,255,255,0.5),rgba(255,255,255,0.5)), url("https://andrewminalto.com/wp-content/uploads/2021/01/aceb5-garlic-press.jpg");
+  background-size: cover;
+}
+
+
+.loginTitle {
+  font-size: 50px;
+}
+
+.loginForm {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.loginForm > label {
+  margin: 10 px 0;
+}
+
+.loginInput {
+  padding: 10px;
+  background-color: white;
+  border: none;
+}
+
+.loginButton {
+  margin-top: 20px;
+  cursor: pointer;
+  background-color: burlywood;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.loginRegisterButton {
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  background-color: teal;
+  cursor:pointer;
+  border: none;
+  padding: 10px;
+  color: white;
+  border-radius: 10px;
+}
+
+/* Register Styling*/
+.register {
+  height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(rgba(255,255,255,0.5),rgba(255,255,255,0.5)), url("https://img.freepik.com/premium-vector/hand-painted-background-violet-orange-colours_23-2148427578.jpg?w=2000");
+  background-size: cover;
+}
+
+.registerTitle {
+  font-size: 50px;
+}
+
+.registerForm {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.registerForm > label {
+  margin: 10 px 0;
+}
+
+.registerInput {
+  padding: 10px;
+  background-color: white;
+  border: none;
+}
+
+.registerButton {
+  margin-top: 20px;
+  cursor: pointer;
+  background-color: teal;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.registerLoginButton {
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  background-color: burlywood;
+  cursor:pointer;
+  border: none;
+  padding: 10px;
+  color: white;
+  border-radius: 10px;
 }
 
 

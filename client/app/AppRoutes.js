@@ -31,12 +31,12 @@ const AppRoutes = () => {
           <Route path="/products" element={<AllProducts />} />
           <Route path='/cart' element={<Cart />} />
         </Routes>
-      {/* //  ) : (
-      //   <Routes>
-      //     <Route path="/login" element={<Login />} />
-      //     <Route path="/signup" element={<Register />} />
-      //   </Routes>
-      // )} */}
+       {/* ) : ( */}
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Register />} />
+        </Routes>
+      )
     </div>
   );
 };
