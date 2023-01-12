@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { logout } from '../../app/store';
 
 const Navbar = () => {
+  const { first_Name, last_Name } = useSelector((state) => state.auth.me);
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -26,7 +27,7 @@ const Navbar = () => {
         {isLoggedIn ? (
           <div>
             {/* The navbar will show these links after you log in */}
-            <Link to="/home">Home</Link>
+            <span>Welcome {first_Name} {last_Name}</span>
             <button type="button" onClick={logoutAndRedirectHome}>
               Logout
             </button>
