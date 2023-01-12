@@ -92,7 +92,7 @@ async function seed() {
   console.log('carts successfully seeded')
 }
 
-// seed()
+seed()
 
 
 /*
