@@ -72,6 +72,7 @@ form div {
   background-color: #407076;
   padding: 10px;
   font-family: Arial;
+
 }
 
 .top-center{
@@ -80,15 +81,14 @@ form div {
   align-items: center;
   justify-content: center;
   color: #000;
-
 }
 
 .top-item{
   margin: 0 1em;
   text-decoration: none;
   /* where we can adjust the colors for the center nav */
-  color: #000
-}
+  color: #000;
+ }
 
 .top-right{
   flex: 1;
@@ -96,7 +96,6 @@ form div {
   align-items: center;
   justify-content: end;
   background-color: #407076;
-
 }
 
 /* hover effect for both the login and center nav bar section */
@@ -176,6 +175,7 @@ nav a:hover{
   border-radius: 10px;
 }
 
+
 /* Register Styling*/
 .register {
   height: calc(100vh - 60px);
@@ -215,6 +215,11 @@ nav a:hover{
   color: white;
   border-radius: 10px;
   padding: 10px;
+}
+
+.registerButton:hover{
+  border: 1px solid black;
+  background-color: #002529;
 }
 
 .registerLoginButton {
