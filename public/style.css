@@ -103,3 +103,17 @@ form div {
 .cardPrice {
   font-weight: 900;
 }
+
+
+
+
+/* Cart Styling */
+
+#cart-header {
+  text-align: center;
+}
+
+.cart-item-container {
+
+
+}
