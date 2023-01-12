@@ -1,7 +1,6 @@
 'use strict'
 
 const {db, models:{User, Products, Cart, CreditCard}} = require('../server/db');
-// const {} = require('../server/db')
 const {faker} = require('@faker-js/faker');
 
 /**
@@ -32,7 +31,7 @@ function createProducts(){
       name: faker.helpers.unique(faker.commerce.productName),
       quantity: faker.random.numeric(3),
       description: faker.commerce.productDescription(),
-      price: faker.datatype.number({min: 1, max: 1000, precision:.01})
+      price: faker.datatype.number({min: 1, max: 1000, precision:.01}),
     })
   }
   return products
