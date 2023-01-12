@@ -1,8 +1,7 @@
 'use strict'
 
-const {db, models:{User, Products}} = require('../server/db');
-// const {} = require('../server/db')
-const {faker} = require('@faker-js/faker')
+const {db, models:{User, Products, Cart, CreditCard}} = require('../server/db');
+const {faker} = require('@faker-js/faker');
 
 /**
  * seed - this function clears the database, updates tables to
@@ -32,10 +31,29 @@ function createProducts(){
       name: faker.helpers.unique(faker.commerce.productName),
       quantity: faker.random.numeric(3),
       description: faker.commerce.productDescription(),
-      price: faker.datatype.number({min: 1, max: 1000, precision:.01})
+      price: faker.datatype.number({min: 1, max: 1000, precision:.01}),
     })
   }
   return products
+}
+
+function createCreditCards(){
+  let creditCards = [];
+  for (let i = 0; i < 50; i++){
+    creditCards.push({
+      name: faker.name.fullName(),
+      cardNumber: faker.datatype.number({min:16, max: 16}),
+      cardType: faker.helpers.arrayElement(['Visa', 'MasterCard', 'American Express', 'Discover']),
+      expirationDate: faker.date.future(),
+      securityCode: faker.datatype.number({min:3, max: 3}),
+      billingAddress: faker.address.streetAddress(),
+      billingCity: faker.address.cityName(),
+      billingState: faker.address.stateAbbr(),
+      billingZip: faker.datatype.number({min:5, max: 5}),
+      billingCountry: faker.address.countryCode()
+    })
+  }
+  return creditCards
 }
 
 async function seed() {
@@ -46,12 +64,32 @@ async function seed() {
   const users = createUsers();
   // Creating Products
   const products = createProducts()
+  // Creating Credit Cards
+  const creditCards = createCreditCards()
 
   User.bulkCreate(users)
   Products.bulkCreate(products)
+  CreditCard.bulkCreate(creditCards)
+
+  const carts = [
+    {
+      quantity: 10,
+      price: 3.50,
+      total: 35.00
+    },
+    {
+      quantity: 25,
+      price: 10,
+      total: 250.00
+    },
+  ]
+  //Creating a couple of dummy carts
+  Cart.bulkCreate(carts)
 
   console.log(`successfully seeded ${users.length} users`)
   console.log(`successfully seeded ${products.length} products`)
+  console.log(`successfully seeded ${creditCards.length} credit cards`)
+  console.log('carts successfully seeded')
 }
 
 seed()

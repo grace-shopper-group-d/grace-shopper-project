@@ -2,34 +2,31 @@
 
 const db = require("./db");
 const User = require("./models/User");
-const Orders = require('./models/Products')
+const Orders = require('./models/Orders')
 const Products = require('./models/Products')
 const CreditCard = require('./models/CreditCard')
 const Cart = require('./models/Cart')
 
 
 
-//associations could go here!
 
 // User Associations
 User.hasMany.Orders
-User.hasOne.Cart
 User.hasOne.CreditCard
+User.hasMany.Products
 
-// Cart Associations
-Cart.hasMany.Products
-Cart.belongsTo.User
 
 // Orders Associations
 Orders.belongsTo.User
 Orders.hasMany.Products
 
-// CreditCard Assocation
+// CreditCard Associations
 CreditCard.belongsTo.User
 
 // Products Association
-Products.belongsToMany.Cart
 Products.belongsToMany.Orders
+Products.belongsToMany.User
+
 
 
 
