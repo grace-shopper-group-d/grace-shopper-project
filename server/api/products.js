@@ -14,14 +14,15 @@ router.get("/", async (req, res, next) => {
 });
 
 //router to find single product
-router.get("/:id", async (req, res, next) => {
-  try {
-    const product = await Products.findByPk(req.params.id);
-    res.send(product);
-  } catch (err) {
-    next(err);
-  }
-});
+router.get('/:id', async (req, res, next) => {
+    try {
+        const product = await Products.findByPk(req.params.id)
+        res.send(product)
+    }
+    catch (err) {
+        next(err)
+    }
+})
 
 //router to post new product
 router.post("/", async (req, res, next) => {

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import AllProducts from '../features/allProducts/AllProducts';
+import SingleProduct from '../features/singleproduct/singleProduct'
 import { fetchAllProducts } from '../features/allProducts/allProductsSlice';
 import AuthForm from '../features/auth/AuthForm';
 import Home from '../features/home/Home';
@@ -28,13 +29,13 @@ const AppRoutes = () => {
           <Route path="/" element={<Home />} />
           <Route to="/home" element={<Home />} />
           <Route path="/products" element={<AllProducts />} />
+          <Route path="/products/:productId" element={<SingleProduct/>} />
         </Routes>
        {/* ) : ( */}
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Register />} />
         </Routes>
-      {/* ) */}
     </div>
   );
 };

@@ -29,10 +29,6 @@ Products.belongsToMany.User
 
 
 
-
-
-
-
 module.exports = {
   db,
 
