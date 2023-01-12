@@ -1,7 +1,8 @@
 'use strict'
 
-const {db, models:{User, Products, Cart, CreditCard, OrderProducts}} = require('../server/db');
+const {db, models:{User, Products, Cart, CreditCard, Order, OrderProducts}} = require('../server/db');
 const {faker} = require('@faker-js/faker');
+
 
 /**
  * seed - this function clears the database, updates tables to
@@ -56,6 +57,8 @@ function createCreditCards(){
   return creditCards
 }
 
+
+
 async function seed() {
   await db.sync({ force: true }) // clears db and matches models to tables
   console.log('db synced!')
@@ -70,6 +73,29 @@ async function seed() {
   User.bulkCreate(users)
   Products.bulkCreate(products)
   CreditCard.bulkCreate(creditCards)
+
+  const order1 = await Order.create({
+    invoice: 123456,
+    total: 23,
+    Date: "2016-06-22"
+  })
+
+
+  const order2 = await Order.create({
+    invoice: 3151,
+    total: 45,
+    Date: "2015-05-22"
+  })
+
+const item1 = await Products.findByPk(1);
+const item2 = await Products.findByPk(2);
+const item3 = await Products.findByPk(3);
+
+order1.addProduct(item1)
+order1.addProduct(item2)
+order2.addProduct(item1)
+order2.addProduct(item3)
+
 
   const carts = [
     {

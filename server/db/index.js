@@ -2,7 +2,7 @@
 
 const db = require("./db");
 const User = require("./models/User");
-const Orders = require('./models/Orders')
+const Order = require('./models/Orders')
 const Products = require('./models/Products')
 const CreditCard = require('./models/CreditCard')
 const Cart = require('./models/Cart');
@@ -18,14 +18,14 @@ User.hasMany.Products
 
 
 // Orders Associations
-Orders.belongsTo.User
-Orders.belongsToMany(Products, {through: OrderProducts})
+Order.belongsTo.User
+Order.belongsToMany(Products, {through: OrderProducts})
 
 // CreditCard Associations
 CreditCard.belongsTo.User
 
 // Products Association
-Products.belongsToMany(Orders, {through: OrderProducts})
+Products.belongsToMany(Order, {through: OrderProducts})
 Products.belongsToMany.User
 
 
@@ -39,7 +39,7 @@ module.exports = {
 
   models: {
     User,
-    Orders,
+    Order,
     Products,
     CreditCard,
     Cart,
