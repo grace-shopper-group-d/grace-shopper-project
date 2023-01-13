@@ -10,6 +10,7 @@ import Register from '../features/auth/Register';
 import Login from '../features/auth/Login';
 import { me } from './store';
 import Checkout from '../features/checkout/Checkout';
+import Confirmation from '../features/confirmation/Confirmation';
 
 /**
  * COMPONENT
@@ -26,7 +27,7 @@ const AppRoutes = () => {
 
   return (
     <div>
-      {isLoggedIn ? (
+      {/* {isLoggedIn ? ( */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route to="/home" element={<Home />} />
@@ -34,13 +35,13 @@ const AppRoutes = () => {
           <Route path="/products/:productId" element={<SingleProduct/>} />
 
         </Routes>
-        ) : (
+        {/* ) : ( */}
         <Routes>
           <Route path="/home" element={<Home />} />
           <Route path="/login" element={<Login name="login" />} />
           <Route path="/signup" element={<Register name="signup"/>} />
         </Routes>
-      )}
+      {/* )} */}
 
     </div>
   );
