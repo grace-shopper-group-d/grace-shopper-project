@@ -100,4 +100,3 @@ module.exports = CreditCard
 // CreditCard.beforeUpdate(hashCreditCard)
 // CreditCard.beforeBulkCreate((creditCards) => {
 //     creditCards.forEach(hashCreditCard)
-// })

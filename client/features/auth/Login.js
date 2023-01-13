@@ -1,17 +1,31 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { authenticate } from '../../app/store';
 
-const Login = () => {
+const Login = ({name}) => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const handleSubmit = (evt) => {
+        evt.preventDefault();
+        const formName = evt.target.name;
+        const email = evt.target.email.value;
+        const password = evt.target.password.value;
+        dispatch(authenticate({ email, password, method: formName }))
+        navigate('/home');
+    };
+
     return (
         <div className='container'>
         <div className='login'>
             <span className='loginTitle'>Login</span>
-            <form className='loginForm'>
-                <label>Email</label>
-                <input className='loginInput' type='text' placeholder='Enter your email...' />
-                <label>Password</label>
-                <input className='loginInput' type='password' placeholder='Enter your password...' />
-                <button className='loginButton'>Login</button>
+            <form onSubmit={handleSubmit} name={name} className='loginForm'>
+                <label htmlFor='email'>Email</label>
+                <input name='email' className='loginInput' type='text' placeholder='Enter your email...' />
+                <label htmlFor='password'>Password</label>
+                <input name='password' className='loginInput' type='password' placeholder='Enter your password...' />
+                <button className='loginButton' type="submit">Login</button>
             </form>
         </div>
         </div>

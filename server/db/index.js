@@ -7,6 +7,7 @@ const Products = require("./models/Products");
 const CreditCard = require("./models/CreditCard");
 const Cart = require("./models/Cart");
 
+
 User.hasOne(CreditCard);
 CreditCard.belongsTo(User);
 

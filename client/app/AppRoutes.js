@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import AllProducts from '../features/allProducts/AllProducts';
+import SingleProduct from '../features/singleproduct/singleProduct'
 import { fetchAllProducts } from '../features/allProducts/allProductsSlice';
 import AuthForm from '../features/auth/AuthForm';
 import Home from '../features/home/Home';
@@ -30,14 +31,17 @@ const AppRoutes = () => {
           <Route path="/" element={<Home />} />
           <Route to="/home" element={<Home />} />
           <Route path="/products" element={<AllProducts />} />
-          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/products/:productId" element={<SingleProduct/>} />
+
         </Routes>
         ) : (
         <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Register />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/login" element={<Login name="login" />} />
+          <Route path="/signup" element={<Register name="signup"/>} />
         </Routes>
       )}
+
     </div>
   );
 };
