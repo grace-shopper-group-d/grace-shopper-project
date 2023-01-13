@@ -8,11 +8,18 @@ import { fetchUserAsync, selectUser } from '../user/userSlice';
 const Cart = () => {
 
 
+  const userId = useSelector((state) => state.auth.me.id);
+
+
   let user = useSelector(selectUser);
+  let cartProducts = user.products
   const dispatch = useDispatch()
 
+ 
+
+
   useEffect(()=> {
-    dispatch(fetchUserAsync(101))
+    dispatch(fetchUserAsync(userId))
   },[dispatch])
 
   let bike = {
@@ -39,30 +46,24 @@ const Cart = () => {
 
   return (
     <>
-    <h1>{user.first_Name}</h1>
-    <h3 id='cart-header' >{`You have (4) Items in Your Cart`}</h3>
+
+    <h1>{user.first_Name}'s Cart</h1>
+    <h3 id='cart-header' >{`You have  Items in Your Cart`}</h3>
     <div  id='cart-items-container'>
-      <div className='cart-item-container'> 
-        <img className="cart-item-img" src={bike.imgUrl} />
-        <div className='cart-item-name'>`{`${bike.name}`}</div>
-        <div className='cart-item-price'>{`${bike.price}`}</div>
-        <div className='cart-item-price'>{`Quantity`}</div>
-        <div className='cart-item-price'>{`Total`}</div>
+      {cartProducts ? cartProducts.map((product) => (
+        <div className='cart-item-container'> 
+        <img className="cart-item-img" src={product.imageUrl} />
+        <div className='cart-item-name'>`{`${product.name}`}</div>
+        <div className='cart-item-price'>{`${product.price}`}</div>
+        <div className='cart-item-price'>
+          <button class="plus_minus">+</button>
+          <span class="number">1</span>
+          <button class="minus_plus">-</button>
+        </div>
+        <div className='cart-item-price'>{product.price * 2}</div>
       </div>
-      <div className='cart-item-container' id='item2'> 
-        <img className="cart-item-img" src={bike.imgUrl} />
-        <div className='cart-item-name'>`{`${bike.name}`}</div>
-        <div className='cart-item-price'>{`${bike.price}`}</div>
-        <div className='cart-item-price'>{`1`}</div>
-        <div className='cart-item-price'>{`Total`}</div>
-      </div>
-      <div className='cart-item-container' id='item3'> 
-        <img className="cart-item-img" src={bike.imgUrl} />
-        <div className='cart-item-name'>`{`${bike.name}`}</div>
-        <div className='cart-item-price'>{`${bike.price}`}</div>
-        <div className='cart-item-price'>{`Quantity`}</div>
-        <div className='cart-item-price'>{`Total`}</div>
-      </div>
+      ))
+             : <div>Nothing in your cart</div>}
     </div>
     </>
 
