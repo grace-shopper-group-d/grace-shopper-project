@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const {
-  models: { Products },
+   Products ,
 } = require("../db");
 
 //router to find all products

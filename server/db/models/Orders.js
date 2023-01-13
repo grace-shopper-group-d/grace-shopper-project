@@ -15,7 +15,7 @@ const Order = db.define('order', {
   Date: {
     type: Sequelize.DATEONLY,
     allowNull: false
-  }
+  },
 })
 
 module.exports = Order
