@@ -12,6 +12,7 @@ import { me } from './store';
 import Checkout from '../features/checkout/Checkout';
 import Cart from '../features/cart/cart';
 
+
 /**
  * COMPONENT
  */
@@ -29,7 +30,7 @@ const AppRoutes = () => {
 
   return (
     <div>
-      {isLoggedIn && isAdmin ? (
+      {/* {isLoggedIn && isAdmin ? ( */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
@@ -37,7 +38,7 @@ const AppRoutes = () => {
           <Route path="/products/:productId" element={<SingleProduct/>} />
           <Route path="/users" element={<AllUsers />} />
         </Routes>
-        ) : isLoggedIn ? (
+        {/* ) : isLoggedIn ? ( */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
@@ -45,7 +46,7 @@ const AppRoutes = () => {
           <Route path="/products" element={<AllProducts />} />
           <Route path="/cart" element={<Cart />} />
         </Routes>
-        ) : (
+        {/* ) : ( */}
         <Routes>
           <Route path="/home" element={<Home />} />
           <Route path="/login" element={<Login name="login" />} />
@@ -53,7 +54,7 @@ const AppRoutes = () => {
           <Route path="/signup" element={<Register name="signup"/>} />
           <Route path="/checkout" element={<Checkout />} />
         </Routes>
-      )}
+      {/* )} */}
 
     </div>
   );

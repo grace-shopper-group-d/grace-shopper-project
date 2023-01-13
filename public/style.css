@@ -233,8 +233,21 @@ nav a:hover{
   color: white;
   border-radius: 10px;
 }
+/* logout button */
+.logOutButton{
+  margin-top: 20px;
+  cursor: pointer;
+  background-color: burlywood;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+}
 
-
+.logOutButton:hover{
+  background-color: #CE8147;
+  border:1px solid #000;
+}
 
 
 /* Cart Styling */

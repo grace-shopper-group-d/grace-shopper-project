@@ -63,7 +63,7 @@ const Cart = () => {
         <div className='cart-item-price'>{`Quantity`}</div>
         <div className='cart-item-price'>{`Total`}</div>
       </div>
-      <button>Checkout</button>
+      
     </div>
     </>
 

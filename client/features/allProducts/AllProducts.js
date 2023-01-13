@@ -7,7 +7,7 @@ const AllProducts = () => {
   const dispatch = useDispatch();
 
   const products = useSelector(selectProducts);
-  
+
   useEffect(() => {
     dispatch(fetchAllProducts());
   }, [dispatch]);
@@ -24,7 +24,7 @@ const AllProducts = () => {
                 </div>
                 <div className="productCardBottom">
                   <h2 className="cardName">{product.name}</h2>
-                  <p className="cardPrice">{product.price}</p>
+                  <p className="cardPrice"> $ {product.price}</p>
                 </div>
               </div>
             </div>

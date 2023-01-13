@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Confirmation = ()=>{
-  
+
   return(
 
     <div>
@@ -11,6 +11,6 @@ const Confirmation = ()=>{
   )
 
 };
-console.log(Confirmation)
+
 export default Confirmation;
 
