@@ -5,6 +5,7 @@ import allProductsSlice from '../features/allProducts/allProductsSlice';
 import singleProductSlice from '../features/singleproduct/singleProductSlice';
 import allUsersSlice from '../features/allUsers/allUsersSlice';
 import userSlice from '../features/user/userSlice';
+import singleUserSlice from '../features/singleuser/singleUserSlice';
 
 const store = configureStore({
   reducer: {
@@ -13,6 +14,8 @@ const store = configureStore({
     product: singleProductSlice,
     users: allUsersSlice,
     user: userSlice,
+    singleUser: singleUserSlice
+    
    },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 });
