@@ -32,7 +32,6 @@ const AppRoutes = () => {
           <Route to="/home" element={<Home />} />
           <Route path="/products" element={<AllProducts />} />
           <Route path="/products/:productId" element={<SingleProduct/>} />
-
         </Routes>
         ) : (
         <Routes>
