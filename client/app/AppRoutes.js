@@ -11,6 +11,8 @@ import Login from '../features/auth/Login';
 import { me } from './store';
 import Checkout from '../features/checkout/Checkout';
 import Cart from '../features/cart/cart';
+import SingleUser from '../features/singleuser/singleUser';
+import userSlice from '../features/user/userSlice';
 
 /**
  * COMPONENT
@@ -18,6 +20,7 @@ import Cart from '../features/cart/cart';
 
 const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
+  const isAdmin = useSelector((state) => state.auth.me.isAdmin);
   // const isLoggedIn = true
   const dispatch = useDispatch();
 
@@ -34,6 +37,7 @@ const AppRoutes = () => {
           <Route path="/products" element={<AllProducts />} />
           <Route path="/products/:productId" element={<SingleProduct/>} />
           <Route path="/users" element={<AllUsers />} />
+          <Route path="/users/:userId" element={<SingleUser/>}/>
         </Routes>
         ) : isLoggedIn ? (
         <Routes>

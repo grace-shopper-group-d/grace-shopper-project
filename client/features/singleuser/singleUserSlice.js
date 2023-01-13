@@ -1,31 +1,31 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
+// import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+// import axios from "axios";
 
-const initialState = {};
+// const initialState = {};
 
-export const fetchUser = createAsyncThunk('fetchUser', async (id) => {
-    try {
-        const {data } = await axios.get(`/api/users/${id}`)
-        return data
-    }
-    catch (err) {
-        console.log(err);
-    }
-})
+// export const fetchUser = createAsyncThunk('fetchUser', async (id) => {
+//     try {
+//         const { data } = await axios.get(`/api/users/${id}`)
+//         return data
+//     }
+//     catch (err) {
+//         console.log(err);
+//     }
+// })
 
-const userSlice = createSlice({
-    name: 'user',
-    initialState,
-    reducers: {},
-    extraReducers: (builder) => {
-        builder.addCase(fetchUser.fulfilled, (state, action) => {
-            return action.payload
-        })
-    }
-})
+// const singleUserSlice = createSlice({
+//     name: 'user',
+//     initialState,
+//     reducers: {},
+//     extraReducers: (builder) => {
+//         builder.addCase(fetchUser.fulfilled, (state, action) => {
+//             return action.payload
+//         })
+//     }
+// })
 
-export const singleUser = (state) => {
-    return state.user 
-}
+// export const singleUser = (state) => {
+//     return state.user
+// }
 
-export default userSlice.reducer;
+// export default singleUserSlice.reducer;
