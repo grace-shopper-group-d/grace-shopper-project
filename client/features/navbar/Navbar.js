@@ -6,6 +6,7 @@ import { logout } from '../../app/store';
 const Navbar = () => {
   const { first_Name, last_Name } = useSelector((state) => state.auth.me);
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
+  const isAdmin = useSelector((state) => state.auth.me.isAdmin);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const logoutAndRedirectHome = () => {
@@ -22,6 +23,11 @@ const Navbar = () => {
       <Link className='top-item' to="/products">Products</Link>
       <Link className='top-item' to="/cart">Cart</Link>
       <Link className='top-item' to="/orders">Orders</Link>
+      {isLoggedIn && isAdmin ? (
+        <div>
+          <Link className='top-item' to="/users">Users</Link>
+        </div>
+      ) : null}
       </div>
       <nav className='top-right'>
         {isLoggedIn ? (

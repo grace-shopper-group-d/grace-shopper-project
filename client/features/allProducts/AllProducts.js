@@ -7,7 +7,7 @@ const AllProducts = () => {
   const dispatch = useDispatch();
 
   const products = useSelector(selectProducts);
-
+  
   useEffect(() => {
     dispatch(fetchAllProducts());
   }, [dispatch]);
