@@ -1,7 +1,16 @@
-import React from "react";
-
+import React, {useEffect} from "react";
+import {fetchUserAsync, selectUser} from "../user/userSlice"
+import { useDispatch, useSelector } from "react-redux";
 
 const Checkout = () => {
+const dispatch = useDispatch()
+
+const userProducts = useSelector(selectUser)
+console.log("this is my userProducts", userProducts)
+
+useEffect(() => {
+  dispatch(fetchUserAsync())
+}, [dispatch])
 
   return (
     <div className="checkoutOuter">
