@@ -32,6 +32,7 @@ const AppRoutes = () => {
           <Route path="/" element={<Home />} />
           <Route to="/home" element={<Home />} />
           <Route path="/products" element={<AllProducts />} />
+          <Route path='/products/:productId' element={<SingleProduct/>} />
           <Route path="/cart" element={<Cart />} />
         </Routes>
         ) : (
