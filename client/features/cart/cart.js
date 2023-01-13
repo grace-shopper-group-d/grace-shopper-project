@@ -1,10 +1,20 @@
 import React, {useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
+import { fetchUserAsync, selectUser } from '../user/userSlice';
 
 
 
 const Cart = () => {
+
+
+  let user = useSelector(selectUser);
+  const dispatch = useDispatch()
+
+  useEffect(()=> {
+    dispatch(fetchUserAsync(101))
+  },[dispatch])
+
   let bike = {
     imgUrl:  'https://www.shutterstock.com/image-photo/yellow-black-29er-mountainbike-thick-260nw-1498702814.jpg',
     name: "Super turbo bicycle",
@@ -29,6 +39,7 @@ const Cart = () => {
 
   return (
     <>
+    <h1>{user.first_Name}</h1>
     <h3 id='cart-header' >{`You have (4) Items in Your Cart`}</h3>
     <div  id='cart-items-container'>
       <div className='cart-item-container'> 
