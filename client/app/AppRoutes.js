@@ -10,6 +10,7 @@ import Register from '../features/auth/Register';
 import Login from '../features/auth/Login';
 import { me } from './store';
 import Checkout from '../features/checkout/Checkout';
+import Cart from '../features/cart/cart';
 
 /**
  * COMPONENT
@@ -44,6 +45,7 @@ const AppRoutes = () => {
           <Route path="/products" element={<AllProducts />} />
           <Route path="/products/:productId" element={<SingleProduct/>} />
           <Route path="/signup" element={<Register name="signup"/>} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
       ): (
         <Routes>

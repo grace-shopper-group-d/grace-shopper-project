@@ -21,7 +21,7 @@ const seed = require('../script/seed');
 // init()
 
 
-db.sync().then(() => {
+db.sync({force: true}).then(() => {
   seed()
   console.log("DB Synced!!!")
   app.listen(PORT, () =>
