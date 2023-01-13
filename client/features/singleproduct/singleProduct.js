@@ -15,8 +15,9 @@ const SingleProduct = () => {
     return (
         <div className='product'>
             <img src={`/${product.imageUrl}`} />
-            <h2> {product.name}</h2>
-            <h2> $ {product.price}</h2>
+            <h2>Name: {product.name}</h2>
+            <h2>Price: {product.price}</h2>
+            <h2>Description: {product.description}</h2>
         </div>
     )
 }
