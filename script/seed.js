@@ -86,16 +86,27 @@ async function seed() {
   CreditCard.bulkCreate(creditCards);
 
   let user1 = await User.create({
-    isAdmin: faker.datatype.boolean(),
-    password: faker.internet.password(8),
+    isAdmin: false,
+    password: "password",
     address: faker.address.streetAddress(true),
     telephone: faker.phone.number(),
     first_Name: faker.name.firstName(),
     last_Name:faker.name.lastName(),
-    email: faker.helpers.unique(faker.internet.email),
+    email: "patkenny@gmail.com",
   })
-
   let product1 = await Products.create({
+    name: faker.helpers.unique(faker.commerce.productName),
+      quantity: faker.random.numeric(3),
+      description: faker.commerce.productDescription(),
+      price: faker.datatype.number({min: 1, max: 1000, precision:.01}),
+  })
+  let product2 = await Products.create({
+    name: faker.helpers.unique(faker.commerce.productName),
+      quantity: faker.random.numeric(3),
+      description: faker.commerce.productDescription(),
+      price: faker.datatype.number({min: 1, max: 1000, precision:.01}),
+  })
+  let product3 = await Products.create({
     name: faker.helpers.unique(faker.commerce.productName),
       quantity: faker.random.numeric(3),
       description: faker.commerce.productDescription(),
@@ -103,6 +114,9 @@ async function seed() {
   })
 
   user1.addProduct(product1)
+  user1.addProduct(product2)
+  user1.addProduct(product3)
+
 
 
 

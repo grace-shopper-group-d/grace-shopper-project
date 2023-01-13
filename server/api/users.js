@@ -21,6 +21,7 @@ router.get("/", async (req, res, next) => {
 router.get("/:id", async (req, res, next) => {
   try {
     const user = await User.findByPk(req.params.id, { include: Products })
+    console.log("this is my user", user)
     res.send(user)
   } catch (err){
     next(err)

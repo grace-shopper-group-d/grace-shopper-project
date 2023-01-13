@@ -1,16 +1,19 @@
-import React, {useEffect} from "react";
-import {fetchUserAsync, selectUser} from "../user/userSlice"
-import { useDispatch, useSelector } from "react-redux";
+import React, {useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchUserAsync, selectUser } from '../user/userSlice';
 
 const Checkout = () => {
-const dispatch = useDispatch()
-
-const userProducts = useSelector(selectUser)
-console.log("this is my userProducts", userProducts)
-
-useEffect(() => {
-  dispatch(fetchUserAsync())
-}, [dispatch])
+  const userId = useSelector((state) => state.auth.me.id);
+  
+  console.log("this is my user ID", userId)
+  let user = useSelector(selectUser);
+  console.log("this is my user", user)
+  let userProducts = user.products
+  console.log("this is my user products", userProducts)
+  const dispatch = useDispatch()
+  useEffect(()=> {
+    dispatch(fetchUserAsync(userId))
+  },[dispatch])
 
   return (
     <div className="checkoutOuter">
@@ -18,7 +21,7 @@ useEffect(() => {
         <div className="leftSectionTop">
           <h2>Checkout</h2>
           <form className="checkoutForm">
-            <label>First Name</label>
+            <label>{user.first_Name}</label>
             <input className="checkoutInput" type="text" placeholder="Enter your first name..." />
             <label>Last Name</label>
             <input className="checkoutInput" type="text" placeholder="Enter your last name..." />
