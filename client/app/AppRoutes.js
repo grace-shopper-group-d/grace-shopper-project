@@ -16,8 +16,8 @@ import Checkout from '../features/checkout/Checkout';
  */
 
 const AppRoutes = () => {
-  const isLoggedIn = useSelector((state) => !!state.auth.me.id);
-  // const isLoggedIn = true
+  // const isLoggedIn = useSelector((state) => !!state.auth.me.id);
+  const isLoggedIn = true
   const dispatch = useDispatch();
 
   useEffect(() => {
