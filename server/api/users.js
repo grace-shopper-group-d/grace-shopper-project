@@ -1,5 +1,6 @@
 const router = require('express').Router()
-const { User }  = require('../db')
+const { User }  = require('../db');
+const {Products} = require('../db')
 module.exports = router
 
 
@@ -21,7 +22,7 @@ router.get('/', async (req, res, next) => {
 //router to find single user based on id
 router.get('/:id', async (req, res, next) => {
   try {
-    const user = await User.findByPk(req.params.id)
+    const user = await User.findByPk(req.params.id, { include: Products })
     res.send(user)
   }
   catch (err) {
