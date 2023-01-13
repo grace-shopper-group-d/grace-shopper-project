@@ -2,39 +2,29 @@
 
 const db = require("./db");
 const User = require("./models/User");
-const Orders = require('./models/Orders')
-const Products = require('./models/Products')
-const CreditCard = require('./models/CreditCard')
-const Cart = require('./models/Cart')
+const Order = require("./models/Orders");
+const Products = require("./models/Products");
+const CreditCard = require("./models/CreditCard");
+const Cart = require("./models/Cart");
 
 
+User.hasOne(CreditCard);
+CreditCard.belongsTo(User);
 
+User.hasMany(Order);
+Order.belongsTo(User);
 
+User.belongsToMany(Products, { through: "UserProducts" });
+Products.belongsToMany(User, { through: "UserProducts" });
 
-
-// User.hasMany(Order)
-// Order.belongsTo(User)
-
-// User.belongsToMany(Product, {through: "userProducts"})
-// Product.belongsToMany(User, {through: "userProducts"})
-
-// User.hasOne(CreditCard)
-// CreditCard.belongsTo(User)
-// error
-
-
-// Product.belongsToMany(Order, {through: "orderProducts"})
-// Order.belongsToMany(Product, {through: "orderProducts"})
+Order.belongsToMany(Products, { through: "OrderProducts" });
+Products.belongsToMany(Order, { through: "OrderProducts" });
 
 module.exports = {
   db,
-
-  models: {
-    User,
-    Orders,
-    Products,
-    CreditCard,
-    Cart,
-  },
-}
-
+  User,
+  Order,
+  Products,
+  CreditCard,
+  Cart,
+};

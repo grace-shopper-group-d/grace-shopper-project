@@ -1,6 +1,6 @@
 'use strict'
 
-const {db, models:{User, Products, Cart, CreditCard}} = require('../server/db');
+const {db,User, Products, Cart, CreditCard} = require('../server/db');
 const {faker} = require('@faker-js/faker');
 
 /**
@@ -9,7 +9,7 @@ const {faker} = require('@faker-js/faker');
  */
 // This function creates an array of 100 random users, which we will then use to bulkCreate to seed our database
  function createUsers(){
-  let users = [];
+  let users = [] ;
   for (let i = 0; i < 100; i++){
     users.push({
       isAdmin: faker.datatype.boolean(),
@@ -18,7 +18,7 @@ const {faker} = require('@faker-js/faker');
       telephone: faker.phone.number(),
       first_Name: faker.name.firstName(),
       last_Name:faker.name.lastName(),
-      email: faker.helpers.unique(faker.internet.email)
+      email: faker.helpers.unique(faker.internet.email),
     })
   }
   return users
@@ -45,11 +45,11 @@ function createCreditCards(){
       cardNumber: faker.datatype.number({min:16, max: 16}),
       cardType: faker.helpers.arrayElement(['Visa', 'MasterCard', 'American Express', 'Discover']),
       expirationDate: faker.date.future(),
-      securityCode: faker.datatype.number({min:3, max: 3}),
+      securityCode: faker.datatype.number({min:100, max: 999}),
       billingAddress: faker.address.streetAddress(),
       billingCity: faker.address.cityName(),
       billingState: faker.address.stateAbbr(),
-      billingZip: faker.datatype.number({min:5, max: 5}),
+      billingZip: faker.datatype.number({min:10000, max: 99999}),
       billingCountry: faker.address.countryCode()
     })
   }
@@ -67,24 +67,12 @@ async function seed() {
   // Creating Credit Cards
   const creditCards = createCreditCards()
 
-  User.bulkCreate(users)
-  Products.bulkCreate(products)
-  CreditCard.bulkCreate(creditCards)
 
-  const carts = [
-    {
-      quantity: 10,
-      price: 3.50,
-      total: 35.00
-    },
-    {
-      quantity: 25,
-      price: 10,
-      total: 250.00
-    },
-  ]
-  //Creating a couple of dummy carts
-  Cart.bulkCreate(carts)
+  User.bulkCreate(users)
+
+  Products.bulkCreate(products)
+
+  CreditCard.bulkCreate(creditCards)
 
   console.log(`successfully seeded ${users.length} users`)
   console.log(`successfully seeded ${products.length} products`)
@@ -92,7 +80,7 @@ async function seed() {
   console.log('carts successfully seeded')
 }
 
-seed()
+// seed()
 
 
 /*
