@@ -8,20 +8,44 @@ const {faker} = require('@faker-js/faker');
  *      match the models, and populates the database.
  */
 // This function creates an array of 100 random users, which we will then use to bulkCreate to seed our database
- function createUsers(){
-  let users = [] ;
-  for (let i = 0; i < 100; i++){
+//  function createUsers(){
+//   let users = [] ;
+//   for (let i = 0; i < 100; i++){
+//     users.push({
+//       isAdmin: faker.datatype.boolean(),
+//       password: faker.internet.password(8),
+//       address: faker.address.streetAddress(true),
+//       telephone: faker.phone.number(),
+//       first_Name: faker.name.firstName(),
+//       last_Name:faker.name.lastName(),
+//       email: faker.helpers.unique(faker.internet.email),
+//     })
+//   }
+//   return users
+// }
+
+function createUsers() {
+  let users = [{
+    isAdmin: true,
+    password: 'password',
+    address: '123 St',
+    telephone: '5088888888',
+    first_Name: 'Admin',
+    last_Name: 'Admin',
+    email: 'admin@test.com'
+  }];
+  for (let i = 0; i < 100; i++) {
     users.push({
       isAdmin: faker.datatype.boolean(),
       password: faker.internet.password(8),
       address: faker.address.streetAddress(true),
       telephone: faker.phone.number(),
       first_Name: faker.name.firstName(),
-      last_Name:faker.name.lastName(),
+      last_Name: faker.name.lastName(),
       email: faker.helpers.unique(faker.internet.email),
-    })
+    });
   }
-  return users
+  return users;
 }
 
 function createProducts(){
