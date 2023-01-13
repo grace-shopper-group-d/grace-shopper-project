@@ -25,16 +25,15 @@
   transform: scale(0.98);
 }
 
-.cardName .cardPrice {
+.cardName .cardPrice{
   font-family: Impact, "Arial Narrow Bold", sans-serif;
   font-size: 0.9em;
   left: 0.625em;
   bottom: 0.625em;
+  color: #000;
 }
 
-.cardPrice {
-  font-weight: 900;
-}
+
 
 /*  this is where kevin css starts  */
 
