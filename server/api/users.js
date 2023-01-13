@@ -20,11 +20,8 @@ router.get("/", async (req, res, next) => {
 //router to find single user based on id
 router.get("/:id", async (req, res, next) => {
   try {
-    const user = await User.findByPk(req.params.id, { include: Products});
-    console.log("this is my users", user);
-    res.send(user);
-  } catch (err) {
-    next(err);
+    const user = await User.findByPk(req.params.id, { include: Products })
+    res.send(user)
   }
 });
 
@@ -64,3 +61,5 @@ router.put("/:id", async (req, res, next) => {
 });
 
 module.exports = router;
+
+

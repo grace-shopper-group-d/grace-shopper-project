@@ -85,28 +85,39 @@ async function seed() {
 
   CreditCard.bulkCreate(creditCards);
 
+  User.bulkCreate(users)
+
+  Products.bulkCreate(products)
+
+  CreditCard.bulkCreate(creditCards)
+
   let user1 = await User.create({
     isAdmin: faker.datatype.boolean(),
     password: faker.internet.password(8),
     address: faker.address.streetAddress(true),
     telephone: faker.phone.number(),
     first_Name: faker.name.firstName(),
-    last_Name: faker.name.lastName(),
+    last_Name:faker.name.lastName(),
     email: faker.helpers.unique(faker.internet.email),
-  });
+  })
 
   let product1 = await Products.create({
     name: faker.helpers.unique(faker.commerce.productName),
-    quantity: faker.random.numeric(3),
-    description: faker.commerce.productDescription(),
-    price: faker.datatype.number({ min: 1, max: 1000, precision: 0.01 }),
-  });
+      quantity: faker.random.numeric(3),
+      description: faker.commerce.productDescription(),
+      price: faker.datatype.number({min: 1, max: 1000, precision:.01}),
+  })
 
-  user1.addProduct(product1);
+  user1.addProduct(product1)
 
-  console.log(`successfully seeded ${users.length} users`);
-  console.log(`successfully seeded ${products.length} products`);
-  console.log(`successfully seeded ${creditCards.length} credit cards`);
+
+
+
+
+  console.log(`successfully seeded ${users.length} users`)
+  console.log(`successfully seeded ${products.length} products`)
+  console.log(`successfully seeded ${creditCards.length} credit cards`)
+  console.log('carts successfully seeded')
 }
 
 // seed()
