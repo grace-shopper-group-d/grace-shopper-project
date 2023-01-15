@@ -265,6 +265,10 @@ nav a:hover{
 }
 
 
-.cart-item-container {
+.cart-quantity-container {
+  width: 10%;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
 
 }

@@ -99,7 +99,7 @@ async function seed() {
   CreditCard.bulkCreate(creditCards)
 
   let user1 = await User.create({
-    isAdmin: faker.datatype.boolean(),
+    isAdmin: false,
     password: "password",
     address: faker.address.streetAddress(true),
     telephone: faker.phone.number(),

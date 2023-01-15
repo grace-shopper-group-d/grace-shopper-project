@@ -14,35 +14,16 @@ const Cart = () => {
   let user = useSelector(selectUser);
   let cartProducts = user.products
   const dispatch = useDispatch()
+console.log(user)
 
- 
+//  console.log(cartProducts[0].cartQuantity)
 
 
   useEffect(()=> {
     dispatch(fetchUserAsync(userId))
   },[dispatch])
 
-  let bike = {
-    imgUrl:  'https://www.shutterstock.com/image-photo/yellow-black-29er-mountainbike-thick-260nw-1498702814.jpg',
-    name: "Super turbo bicycle",
-    price: 299.99,
-    description: "Featuring a wide, dual-spring padded cruiser seat and classic cruiser handlebars, this bike provides an upright and comfortable riding position",
 
-  }
-
-  let bike2 = {
-    imgUrl:  'https://www.shutterstock.com/image-photo/yellow-black-29er-mountainbike-thick-260nw-1498702814.jpg',
-    price: 299.99,
-    description: "Featuring a wide, dual-spring padded cruiser seat and classic cruiser handlebars, this bike provides an upright and comfortable riding position",
-
-  }
-
-  let bike3 = {
-    imgUrl:  'https://www.shutterstock.com/image-photo/yellow-black-29er-mountainbike-thick-260nw-1498702814.jpg',
-    price: 299.99,
-    description: "Featuring a wide, dual-spring padded cruiser seat and classic cruiser handlebars, this bike provides an upright and comfortable riding position",
-
-  }
 
   return (
     <>
@@ -53,18 +34,21 @@ const Cart = () => {
       {cartProducts ? cartProducts.map((product) => (
         <div className='cart-item-container'> 
         <img className="cart-item-img" src={product.imageUrl} />
-        <div className='cart-item-name'>`{`${product.name}`}</div>
+        <div className='cart-item-name'>{`${product.name}`}</div>
         <div className='cart-item-price'>{`${product.price}`}</div>
-        <div className='cart-item-price'>
-          <button class="plus_minus">+</button>
-          <span class="number">1</span>
-          <button class="minus_plus">-</button>
+        <div className='cart-quantity-container'>
+          <img src='blackplus.png' height='16px' />
+        <div className='cart-item-price'>{product.cart.cartQuantity}</div>
+        <img src='blackminus.png'  height='16px' />
         </div>
-        <div className='cart-item-price'>{product.price * 2}</div>
+
+        <div className='cart-item-price'>{product.price * product.cart.cartQuantity}</div>
+        <img src='reddelete.png' />
       </div>
       ))
              : <div>Nothing in your cart</div>}
     </div>
+    <button>Checkout</button>
     </>
 
   )
