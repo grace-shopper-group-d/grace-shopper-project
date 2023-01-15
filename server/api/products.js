@@ -5,9 +5,34 @@ const {
 
 //router to find all products
 router.get("/", async (req, res, next) => {
+  // query parameters for pagination page = max number of items on the page, count= the offset for each page
+  //Page = 0
+  //Offset = page *COUNT (0) for the first page
+  //Page = 1, COUNT = 10, Offset = 10.
+  //Page = 2 Count = 10. Offset = 20.
   try {
-    const products = await Products.findAll();
-    res.send(products);
+    const pageAsNumber= Number.parseInt(req.query.page);
+    const sizeAsNumber= Number.parseInt(req.query.size);
+
+    let page = 0;
+    if(!Number.isNaN(pageAsNumber)&& pageAsNumber >0){
+      page = pageAsNumber;
+    }
+
+    let size = 10;
+    if(!Number.isNaN(sizeAsNumber) && sizeAsNumber > 0 && sizeAsNumber < 10){
+        size = sizeAsNumber;
+    }
+
+
+    const products = await Products.findAndCountAll({
+      limit: size,
+      offset: page *size
+    });
+    res.send({
+      content: products.rows,
+      totalPages: Math.ceil(products.count / size)
+    });
   } catch (err) {
     next(err);
   }
