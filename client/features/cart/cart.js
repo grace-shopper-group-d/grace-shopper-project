@@ -1,7 +1,8 @@
-import React, {useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { fetchUserAsync, selectUser } from '../user/userSlice';
+import { fetchUserAsync, removeUserItemAsync, selectUser } from '../user/userSlice';
+import { deleteCartAsync, decrementCartAsync, fetchCartAsync, editCartAsync, selectCart } from './cartSlice';
 
 
 
@@ -10,45 +11,82 @@ const Cart = () => {
 
   const userId = useSelector((state) => state.auth.me.id);
 
-
+  let cart = useSelector(selectCart)
   let user = useSelector(selectUser);
   let cartProducts = user.products
+
   const dispatch = useDispatch()
-console.log(user)
 
-//  console.log(cartProducts[0].cartQuantity)
+  // increases cart item quantity
+  const handleQuantityIncrease = ({ cartId, userId, productId, cartQuantity }) => {
+    let newCart = {
+      cartId: cartId,
+      userId: userId,
+      productId: productId,
+      cartQuantity: cartQuantity
+    }
+    newCart.cartQuantity++
+    dispatch(editCartAsync(newCart))
+  }
+
+  // decreases cart item quantity
+  const handleQuantityDecrease = ({ cartId, userId, productId, cartQuantity }) => {
+    let newCart = {
+      cartId: cartId,
+      userId: userId,
+      productId: productId,
+      cartQuantity: cartQuantity
+    }
+    if (cartQuantity > 1) {
+      newCart.cartQuantity--
+    }
+    dispatch(editCartAsync(newCart))
+  }
+
+  // handles item delte
+  const handleItemDelete = (cartId) => {
+    dispatch(deleteCartAsync(cartId));
+  }
 
 
-  useEffect(()=> {
-    dispatch(fetchUserAsync(userId))
-  },[dispatch])
+  // useEffect
+  useEffect(() => {
+    dispatch(fetchUserAsync(userId));
+    dispatch(fetchCartAsync(userId))
+  }, [dispatch, cart.length])
 
 
 
   return (
     <>
-
-    <h1>{user.first_Name}'s Cart</h1>
-    <h3 id='cart-header' >{`You have  Items in Your Cart`}</h3>
-    <div  id='cart-items-container'>
-      {cartProducts ? cartProducts.map((product) => (
-        <div className='cart-item-container'> 
-        <img className="cart-item-img" src={product.imageUrl} />
-        <div className='cart-item-name'>{`${product.name}`}</div>
-        <div className='cart-item-price'>{`${product.price}`}</div>
-        <div className='cart-quantity-container'>
-          <img src='blackplus.png' height='16px' />
-        <div className='cart-item-price'>{product.cart.cartQuantity}</div>
-        <img src='blackminus.png'  height='16px' />
-        </div>
-
-        <div className='cart-item-price'>{product.price * product.cart.cartQuantity}</div>
-        <img src='reddelete.png' />
+      <button className='checkout-button'>Proceed To Checkout</button>
+      <h3 id='cart-header' >{`${user.first_Name} ${user.last_Name}`}'s Cart</h3>
+      <div id='cart-columns'>
+        <div  className='cart-column-photo'>Photo</div>
+        <div  className='cart-column-name'>Name</div>
+        <div className='cart-column-price'>Price</div>
+        <div className='cart-column-quantity'>Quantity</div>
+        <div className='cart-column-total'>Total</div>
+        <div className='cart-column-delete'>Delete</div>
       </div>
-      ))
-             : <div>Nothing in your cart</div>}
-    </div>
-    <button>Checkout</button>
+      <div id='cart-items-container'>
+        {cartProducts && cartProducts.length ?
+          cartProducts.map((product) => (
+            <div key={`cart-item-${product.id}`} className='cart-item-container'>
+              <img key={`cart-item-img-${product.id}`} className="cart-item-img" src={product.imageUrl} />
+              <div key={`cart-item-name-${product.id}`} className='cart-item-name'>{`${product.name}`}</div>
+              <div key={`cart-item-price-${product.id}`} className='cart-item-price'>{`$${product.price}`}</div>
+              <div key={`cart-item-quantity-${product.id}`} className='cart-quantity-container'>
+                <img onClick={(e) => handleQuantityIncrease(product.cart)} src='blackplus.png' height='16px' />
+                <div className='cart-item-total'>{product.cart.cartQuantity}</div>
+                <img onClick={(e) => handleQuantityDecrease(product.cart)} src='blackminus.png' height='16px' />
+              </div>
+
+              <div id={`cart-item-total-${product.id}`} className='cart-item-price' >{`$${(product.cart.cartQuantity * product.price).toFixed(2)}`}</div>
+              <img id={`cart-item-delete-${product.id}`} onClick={(e) => handleItemDelete(product.cart.cartId)} src='reddelete.png' />
+            </div>)) : <h2 className='empty-cart'>Your Cart is Empty!</h2>}
+        <div></div>
+      </div>
     </>
 
   )
