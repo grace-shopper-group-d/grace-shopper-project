@@ -6,33 +6,10 @@ module.exports = router
 
 //router to find all users
 router.get('/', async (req, res, next) => {
-  //pagination request for all users to only show 10 per page
+
   try {
-    const pageAsNumber= Number.parseInt(req.query.page);
-    const sizeAsNumber= Number.parseInt(req.query.size);
-
-    let page = 0;
-    if(!Number.isNaN(pageAsNumber)&& pageAsNumber >0){
-      page = pageAsNumber;
-    }
-
-    let size = 10;
-    if(!Number.isNaN(sizeAsNumber) && sizeAsNumber > 0 && sizeAsNumber < 10){
-        size = sizeAsNumber;
-    }
-    const users = await User.findAndCountAll({
-      // explicitly select only the id and username fields - even though
-      // users' passwords are encrypted, it won't help if we just
-      // send everything to anyone who asks!
-      // attributes: ['id', 'email']
-      limit: size,
-      offset: page *size
-
-    })
-    res.send({
-      content: users.rows,
-      totalPages: Math.ceil(users.count / size)
-    })
+    const users = await User.findAndCountAll()
+    res.send(users)
   } catch (err) {
     next(err)
   }
