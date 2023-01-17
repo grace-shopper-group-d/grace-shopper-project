@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, createNextState } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const initialState = {};
@@ -13,12 +13,27 @@ export const fetchUserAsync = createAsyncThunk("user", async (id) => {
   }
 })
 
+export const removeUserItemAsync = createAsyncThunk('removeItem', async (userId, productId) => {
+  try {
+    const user = await axios.get(`/api/user/${userId}`)
+    const product = await axios.get(`/api/products/${productId}`)
+    return await user.removeProduct(product)
+
+  }
+  catch (error) {
+    console.log("error in remove removeUserItemAsync", error)
+  }
+})
+
 const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchUserAsync.fulfilled, (state, action) => {
+      return action.payload
+    });
+    builder.addCase(removeUserItemAsync.fulfilled, (state, action) => {
       return action.payload
     });
   }

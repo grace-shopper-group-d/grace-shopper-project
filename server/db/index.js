@@ -14,8 +14,8 @@ CreditCard.belongsTo(User);
 User.hasMany(Order);
 Order.belongsTo(User);
 
-User.belongsToMany(Products, { through: "UserProducts" });
-Products.belongsToMany(User, { through: "UserProducts" });
+User.belongsToMany(Products, { through: Cart });
+Products.belongsToMany(User, { through: Cart });
 
 Order.belongsToMany(Products, { through: "OrderProducts" });
 Products.belongsToMany(Order, { through: "OrderProducts" });
