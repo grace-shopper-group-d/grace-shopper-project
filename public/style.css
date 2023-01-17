@@ -1,5 +1,3 @@
-
-
 /*  this is where Arthur css start */
 .productsPage {
   display: grid;
@@ -7,7 +5,12 @@
   grid-template-rows: repeat(3, 1fr);
   grid-column-gap: 10px;
   grid-row-gap: 10px;
-  background:linear-gradient(rgba(255,255,255,0.5),rgba(255,255,255,0.5)), url("https://assets-global.website-files.com/600fe6e1ff56087409a9f096/605b5a558848493df14d2d13_ecommerce-product-photography.jpg")  no-repeat center fixed ;
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url("https://assets-global.website-files.com/600fe6e1ff56087409a9f096/605b5a558848493df14d2d13_ecommerce-product-photography.jpg")
+      no-repeat center fixed;
   background-size: cover;
 }
 
@@ -63,7 +66,7 @@ form div {
 
 /* Navigation Bar */
 
-.top-left{
+.top-left {
   flex: 3;
   display: flex;
   align-items: center;
@@ -71,10 +74,9 @@ form div {
   background-color: #407076;
   padding: 10px;
   font-family: Arial;
-
 }
 
-.top-center{
+.top-center {
   flex: 3;
   display: flex;
   align-items: center;
@@ -82,14 +84,14 @@ form div {
   color: #000;
 }
 
-.top-item{
+.top-item {
   margin: 0 1em;
   text-decoration: none;
   /* where we can adjust the colors for the center nav */
   color: #000;
- }
+}
 
-.top-right{
+.top-right {
   flex: 1;
   display: flex;
   align-items: center;
@@ -98,15 +100,15 @@ form div {
 }
 
 /* hover effect for both the login and center nav bar section */
-nav a:hover{
+nav a:hover {
   color: #698996;
 }
 
-.top-item:hover{
+.top-item:hover {
   color: #698996;
 }
 
-.userInfo{
+.userInfo {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -121,10 +123,13 @@ nav a:hover{
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(rgba(255,255,255,0.5),rgba(255,255,255,0.5)), url("https://andrewminalto.com/wp-content/uploads/2021/01/aceb5-garlic-press.jpg");
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url("https://andrewminalto.com/wp-content/uploads/2021/01/aceb5-garlic-press.jpg");
   background-size: cover;
 }
-
 
 .loginTitle {
   font-size: 50px;
@@ -157,9 +162,9 @@ nav a:hover{
 }
 
 /* hover color change with border */
-.loginButton:hover{
-  background-color: #CE8147;
-  border:1px solid #000;
+.loginButton:hover {
+  background-color: #ce8147;
+  border: 1px solid #000;
 }
 
 .loginRegisterButton {
@@ -167,13 +172,12 @@ nav a:hover{
   top: 60px;
   right: 20px;
   background-color: teal;
-  cursor:pointer;
+  cursor: pointer;
   border: none;
   padding: 10px;
   color: white;
   border-radius: 10px;
 }
-
 
 /* Register Styling*/
 .register {
@@ -182,7 +186,11 @@ nav a:hover{
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(rgba(255,255,255,0.5),rgba(255,255,255,0.5)), url("https://img.freepik.com/premium-vector/hand-painted-background-violet-orange-colours_23-2148427578.jpg?w=2000");
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url("https://img.freepik.com/premium-vector/hand-painted-background-violet-orange-colours_23-2148427578.jpg?w=2000");
   background-size: cover;
 }
 
@@ -216,7 +224,7 @@ nav a:hover{
   padding: 10px;
 }
 
-.registerButton:hover{
+.registerButton:hover {
   border: 1px solid black;
   background-color: #002529;
 }
@@ -226,28 +234,12 @@ nav a:hover{
   top: 60px;
   right: 20px;
   background-color: burlywood;
-  cursor:pointer;
-  border: none;
-  padding: 10px;
-  color: white;
-  border-radius: 10px;
-}
-/* logout button */
-.logOutButton{
-  margin-top: 20px;
   cursor: pointer;
-  background-color: burlywood;
   border: none;
+  padding: 10px;
   color: white;
   border-radius: 10px;
-  padding: 10px;
 }
-
-.logOutButton:hover{
-  background-color: #CE8147;
-  border:1px solid #000;
-}
-
 
 /* Cart Styling */
 
@@ -255,9 +247,7 @@ nav a:hover{
   text-align: center;
   margin-top: 100px;
   margin-bottom: 50px;
-
 }
-
 
 #cart-columns {
   display: flex;
@@ -278,35 +268,36 @@ nav a:hover{
   border-bottom: solid;
   align-items: center;
   margin-left: 10%;
-
-
 }
-.cart-item-img, .cart-column-photo {
+.cart-item-img,
+.cart-column-photo {
   width: 15%;
 }
-.cart-item-name, .cart-column-name {
+.cart-item-name,
+.cart-column-name {
   width: 30%;
 }
 
-.cart-item-price, .cart-column-price {
+.cart-item-price,
+.cart-column-price {
   width: 15%;
 }
 
-.cart-item-quantity-container, .cart-column-quantity {
+.cart-item-quantity-container,
+.cart-column-quantity {
   width: 15;
 }
 
-.cart-item-total, .cart-column-total {
+.cart-item-total,
+.cart-column-total {
   width: 15%;
-} 
-
+}
 
 .cart-quantity-container {
   width: 10%;
-  display:flex;
+  display: flex;
   flex-direction: row;
   justify-content: space-around;
-
 }
 
 .checkout-button {
@@ -322,8 +313,14 @@ nav a:hover{
   text-shadow: 1px 1px 1px #000;
   border-radius: 10px;
   background-color: rgba(220, 0, 0, 1);
-  background-image: linear-gradient(to top left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 30%, rgba(0, 0, 0, 0));
-  box-shadow: inset 2px 2px 3px rgba(255, 255, 255, 0.6), inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+  background-image: linear-gradient(
+    to top left,
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.2) 30%,
+    rgba(0, 0, 0, 0)
+  );
+  box-shadow: inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+    inset -2px -2px 3px rgba(0, 0, 0, 0.6);
 }
 
 .checkout-button:hover {
@@ -331,12 +328,100 @@ nav a:hover{
 }
 
 .checkout-button:active {
-  box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6), inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+  box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6),
+    inset 2px 2px 3px rgba(0, 0, 0, 0.6);
 }
 .empty-cart {
   margin-top: 10%;
   text-align: center;
 }
 
+/* Styling for the Checkout Page Starts Here */
 
+.checkoutOuter {
+  display: flex;
+  justify-content: center;
+}
+
+.checkoutTitle{
+  text-decoration: underline;
+}
+
+.checkoutLeftSection {
+  height: 100%;
+  width: 50%;
+}
+
+.leftSectionTop {
+  border-bottom: 1px solid black;
+  padding: 10px;
+}
+
+.checkoutInput{
+  margin: 2px;
+}
+
+.leftSectionCenter {
+  border-bottom: 1px solid black;
+  padding: 10px;
+}
+
+.creditCardForm {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
+}
+
+.billingInput{
+  margin: 2px;
+}
+
+.checkoutRightSection {
+  height: 100vh;
+  width: 50%;
+  padding: 10px;
+}
+
+.productBox {
+  border-bottom: 1px solid black;
+  height: 200px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 60% 1fr;
+  grid-template-rows: 80% 1fr;
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
+  margin: 10px;
+}
+
+.checkoutImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.checkoutQuantity {
+  justify-self: center;
+}
+
+.shippingInfo:hover{
+  cursor:pointer;
+  text-decoration: underline;
+}
+
+.creditCardInfo:hover{
+  cursor:pointer;
+  text-decoration: underline;
+}
+
+.arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
 
