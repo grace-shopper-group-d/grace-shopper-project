@@ -94,18 +94,21 @@ async function seed() {
     last_Name:faker.name.lastName(),
     email: "patkenny@gmail.com",
   })
+
   let product1 = await Products.create({
     name: faker.helpers.unique(faker.commerce.productName),
       quantity: faker.random.numeric(3),
       description: faker.commerce.productDescription(),
       price: faker.datatype.number({min: 1, max: 1000, precision:.01}),
   })
+
   let product2 = await Products.create({
     name: faker.helpers.unique(faker.commerce.productName),
       quantity: faker.random.numeric(3),
       description: faker.commerce.productDescription(),
       price: faker.datatype.number({min: 1, max: 1000, precision:.01}),
   })
+
   let product3 = await Products.create({
     name: faker.helpers.unique(faker.commerce.productName),
       quantity: faker.random.numeric(3),
@@ -116,7 +119,6 @@ async function seed() {
   user1.addProduct(product1)
   user1.addProduct(product2)
   user1.addProduct(product3)
-
 
 
 
