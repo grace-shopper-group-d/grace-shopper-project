@@ -10,6 +10,8 @@ router.get("/", async (req, res, next) => {
   //Offset = page *COUNT (0) for the first page
   //Page = 1, COUNT = 10, Offset = 10.
   //Page = 2 Count = 10. Offset = 20.
+
+  //pagination get request for all products to show only 10 per page
   try {
     const pageAsNumber= Number.parseInt(req.query.page);
     const sizeAsNumber= Number.parseInt(req.query.size);

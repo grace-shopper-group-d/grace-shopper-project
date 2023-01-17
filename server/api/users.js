@@ -6,6 +6,7 @@ module.exports = router
 
 //router to find all users
 router.get('/', async (req, res, next) => {
+  //pagination request for all users to only show 10 per page
   try {
     const pageAsNumber= Number.parseInt(req.query.page);
     const sizeAsNumber= Number.parseInt(req.query.size);
@@ -19,8 +20,6 @@ router.get('/', async (req, res, next) => {
     if(!Number.isNaN(sizeAsNumber) && sizeAsNumber > 0 && sizeAsNumber < 10){
         size = sizeAsNumber;
     }
-
-
     const users = await User.findAndCountAll({
       // explicitly select only the id and username fields - even though
       // users' passwords are encrypted, it won't help if we just
