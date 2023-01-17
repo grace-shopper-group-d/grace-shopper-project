@@ -1,66 +1,49 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { fetchUserAsync, removeUserItemAsync, selectUser } from '../user/userSlice';
-import { deleteCartAsync, decrementCartAsync, fetchCartAsync, editCartAsync, selectCart } from './cartSlice';
 
 
 
-const Cart = () => {
 
 
-  const userId = useSelector((state) => state.auth.me.id);
+const GuestCart = () => {
 
-  let cart = useSelector(selectCart)
-  let user = useSelector(selectUser);
-  let cartProducts = user.products
+
+
+
+  let cart = window.localStorage.getItem('cart');
+  console.log(cart)
 
   const dispatch = useDispatch()
 
   // increases cart item quantity
   const handleQuantityIncrease = ({ cartId, userId, productId, cartQuantity }) => {
-    let newCart = {
-      cartId: cartId,
-      userId: userId,
-      productId: productId,
-      cartQuantity: cartQuantity
-    }
-    newCart.cartQuantity++
-    dispatch(editCartAsync(newCart))
+   console.log('guest cart increase')
   }
 
   // decreases cart item quantity
   const handleQuantityDecrease = ({ cartId, userId, productId, cartQuantity }) => {
-    let newCart = {
-      cartId: cartId,
-      userId: userId,
-      productId: productId,
-      cartQuantity: cartQuantity
-    }
-    if (cartQuantity > 1) {
-      newCart.cartQuantity--
-    }
-    dispatch(editCartAsync(newCart))
+    console.log('guest cart decrease')
   }
 
   // handles item delete
   const handleItemDelete = (cartId) => {
-    dispatch(deleteCartAsync(cartId));
+    console.log('guest cart delete')
   }
 
 
   // useEffect
   useEffect(() => {
-    dispatch(fetchUserAsync(userId));
-    dispatch(fetchCartAsync(userId))
-  }, [dispatch, cart.length])
+
+  }, [dispatch])
 
 
 
   return (
     <>
-      <button className='checkout-button'>Proceed To Checkout</button>
-      <h3 id='cart-header' >{`${user.first_Name} ${user.last_Name}`}'s Cart</h3>
+    <div>Test</div>
+      {/* <button className='checkout-button'>Proceed To Checkout</button>
+      <h3 id='cart-header' >Guest Cart</h3>
       <div id='cart-columns'>
         <div  className='cart-column-photo'>Photo</div>
         <div  className='cart-column-name'>Name</div>
@@ -86,10 +69,10 @@ const Cart = () => {
               <img id={`cart-item-delete-${product.id}`} onClick={(e) => handleItemDelete(product.cart.cartId)} src='reddelete.png' />
             </div>)) : <h2 className='empty-cart'>Your Cart is Empty!</h2>}
         <div></div>
-      </div>
+      </div> */}
     </>
 
   )
 }
 
-export default Cart
+export default GuestCart
