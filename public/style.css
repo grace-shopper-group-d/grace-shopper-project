@@ -12,6 +12,7 @@
     url("https://assets-global.website-files.com/600fe6e1ff56087409a9f096/605b5a558848493df14d2d13_ecommerce-product-photography.jpg")
       no-repeat center fixed;
   background-size: cover;
+
 }
 
 .productCard {
@@ -19,13 +20,21 @@
   align-items: center;
   justify-content: center;
 }
+
+.productCardBottom{
+  color: #000;
+}
 .productCard:hover {
   border-radius: 27px;
-  background: #e0e0e0;
+  border: 1px solid #000;
   box-shadow: inset 47px 47px 94px #bebebe, inset -47px -47px 94px #ffffff;
 }
 .productCard:active {
   transform: scale(0.98);
+}
+
+div.product{
+  word-wrap: break-word;
 }
 
 .cardName .cardPrice{
@@ -97,6 +106,7 @@ form div {
   align-items: center;
   justify-content: end;
   background-color: #407076;
+
 }
 
 /* hover effect for both the login and center nav bar section */
@@ -161,7 +171,7 @@ nav a:hover {
   padding: 10px;
 }
 
-/* hover color change with border */
+/* hover color change with border for login button  */
 .loginButton:hover {
   background-color: #ce8147;
   border: 1px solid #000;
