@@ -19,8 +19,8 @@ const AllProducts = () => {
       {isAdmin && isLoggedIn ? <AddProduct /> : null} {/** only shows add product form if user is logged in and is an admin */}
       {products.map((product) => {
         return (
-          <Link to={`/products/${product.id}`}>
-            <div className="productCard" key={product.id}>
+          <Link to={`/products/${product.id}`} key={product.id}>
+            <div className="productCard" >
               <div className="productCardInner">
                 <div className="cardImage">
                   <img src={`/${product.imageUrl}`} />
