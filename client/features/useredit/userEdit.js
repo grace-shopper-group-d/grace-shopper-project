@@ -27,17 +27,20 @@ const EditUser = () => {
 
     return (
         <form id='edit-user' onSubmit={handleSubmit}>
-            <label htmlFor='first-name'>First Name</label>
-            <input name='first' value={first_Name} onChange={(e) => setFirstName(e.target.value)} />
-            <label htmlFor='last-name'>Last Name</label>
-            <input name='last' value={last_Name} onChange={(e) => setLastName(e.target.value)} />
-            <label htmlFor='userEmail'>Email</label>
-            <input name='email' value={email} onChange={(e) => setEmail(e.target.value)} />
-            <label htmlFor='userTelephone'>Telephone</label>
-            <input name='telephone' value={telephone} onChange={(e) => setTelephone(e.target.value)} />
-            <label htmlFor='userAddress'>Address</label>
-            <input name='address' value={address} onChange={(e) => setAddress(e.target.value)} />
-            <button type='submit'>Submit Edit</button>
+            <div className='other-box'>
+            <label htmlFor='first-name'></label>
+            <input placeholder='First Name'name='first' value={first_Name} onChange={(e) => setFirstName(e.target.value)} />
+            <label htmlFor='last-name'></label>
+            <input placeholder='Last Name' name='last' value={last_Name} onChange={(e) => setLastName(e.target.value)} />
+            <label htmlFor='userEmail'></label>
+            <input placeholder='Email' name='email' value={email} onChange={(e) => setEmail(e.target.value)} />
+            <label htmlFor='userTelephone'></label>
+            <input placeholder='Telephone Number'name='telephone' value={telephone} onChange={(e) => setTelephone(e.target.value)} />
+            <label htmlFor='userAddress'></label>
+            <input placeholder='Address' name='address' value={address} onChange={(e) => setAddress(e.target.value)} />
+            <button className='edit-submit' type='submit'>Submit Edit</button>
+            </div>
+            
         </form>
     )
 }
