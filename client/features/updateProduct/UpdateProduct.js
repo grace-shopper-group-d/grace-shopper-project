@@ -12,7 +12,7 @@ const UpdateProduct = (props) => {
     const [imageUrl, setImageUrl] = useState("");
     const [quantity, setQuantity] = useState("");
     const [errors, setErrors] = useState([]);
-    console.log(id, "the id")
+
     useEffect(() => {
         dispatch(fetchProduct(id));
     }, [dispatch, id]);
