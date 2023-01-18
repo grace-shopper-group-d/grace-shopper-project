@@ -14,6 +14,7 @@ import Cart from '../features/cart/cart';
 import SingleUser from '../features/singleuser/singleUser';
 import userSlice from '../features/user/userSlice';
 import GuestCart from '../features/cart/guestcart';
+import GuestCheckout from '../features/checkout/GuestCheckout';
 
 /**
  * COMPONENT
@@ -59,6 +60,7 @@ const AppRoutes = () => {
           <Route path="/signup" element={<Register name="signup"/>} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path='/cart' element ={<GuestCart/>} />
+          <Route path='/guestcheckout' element={<GuestCheckout />} />
         </Routes>
       )}
     </div>
