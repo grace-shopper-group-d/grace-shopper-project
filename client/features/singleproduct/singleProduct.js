@@ -61,15 +61,22 @@ const SingleProduct = () => {
     }, [dispatch, productId])
 
     return (
-        <div className='product'>
+        <div className='single-product'>
+        <div className='single-product-container'>
+            <div className='single-product-container-left'>
             <img src={`/${product.imageUrl}`} />
-            <h2> {product.name}</h2>
-            <h2>$ {product.price}</h2>
-            <h2>Description - {product.description}</h2>
-            <h2>Name: {product.name}</h2>
-            <h2>Price: {product.price}</h2>
-            <h2>Description: {product.description}</h2>
-            {isLoggedIn ? <button id='add-to-user-cart' onClick={(e) => handleAddToCart(userId, product.id)}>Add to Cart</button> : <button id='add-to-guest-cart' onClick={(e) => handleAddtoCartGuest()}>Add to Cart</button>}
+            </div>
+            <div className='single-product-container-right'>
+            <div className='single-product-name'> {product.name}</div>
+            <div className='single-product-price'>$ {product.price}</div>
+            <div className='single-product-description' >Description - {product.description}</div>
+            {isLoggedIn ? <button className='add-to-cart' id='add-to-user-cart' onClick={(e) => handleAddToCart(userId, product.id)}>Add to Cart</button> : <button class='add-to-cart' id='add-to-guest-cart' onClick={(e) => handleAddtoCartGuest()}>Add to Cart</button>}
+            </div>
+            
+            
+            
+           
+        </div>
         </div>
     )
 }
