@@ -10,8 +10,7 @@ const AllProducts = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const isAdmin = useSelector((state) => state.auth.me.isAdmin);
   const products = useSelector(selectProducts);
-  console.log(products, "all products in ")
-  
+
   useEffect(() => {
     dispatch(fetchAllProducts());
   }, [dispatch]);
@@ -27,15 +26,15 @@ const AllProducts = () => {
       {isAdmin && isLoggedIn ? <AddProduct /> : null} {/** only shows add product form if user is logged in and is an admin */}
       {products.map((product) => {
         return (
-          <Link to={`/products/${product.id}`}>
-            <div className="productCard" key={product.id}>
-              <div className="productCardInner" >
-                <div className="cardImage" >
+          <Link to={`/products/${product.id}`} key={product.id}>
+            <div className="productCard" >
+              <div className="productCardInner">
+                <div className="cardImage">
                   <img src={`/${product.imageUrl}`} />
                 </div>
                 <div className="productCardBottom">
-                  <h2 className="cardName" >{product.name}</h2>
-                  <p className="cardPrice" >{product.price}</p>
+                  <h2 className="cardName">{product.name}</h2>
+                  <p className="cardPrice"> $ {product.price}</p>
                 </div>
               </div>
             </div>
