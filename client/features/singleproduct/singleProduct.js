@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom'
 import { addCartAsync } from '../cart/cartSlice';
 import { fetchProduct, singleProduct } from './singleProductSlice';
+import UpdateProduct from '../updateProduct/UpdateProduct';
 import { auth } from '../auth/authSlice'
 
 
@@ -13,6 +14,7 @@ const SingleProduct = () => {
     const product = useSelector(singleProduct);
     const userId = useSelector((state) => state.auth.me.id);
     const isLoggedIn = useSelector((state) => !!state.auth.me.id);
+    const isAdmin = useSelector((state) => state.auth.me.isAdmin);
 
 
 
@@ -71,6 +73,7 @@ const SingleProduct = () => {
             <div className='single-product-price'>$ {product.price}</div>
             <div className='single-product-description' >Description - {product.description}</div>
             {isLoggedIn ? <button className='add-to-cart' id='add-to-user-cart' onClick={(e) => handleAddToCart(userId, product.id)}>Add to Cart</button> : <button class='add-to-cart' id='add-to-guest-cart' onClick={(e) => handleAddtoCartGuest()}>Add to Cart</button>}
+            {isAdmin ? <UpdateProduct id={product.id}/> : null}
             </div>
             
             
