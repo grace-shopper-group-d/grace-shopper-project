@@ -16,6 +16,7 @@ import userSlice from '../features/user/userSlice';
 import GuestCart from '../features/cart/guestcart'
 import EditUser from '../features/useredit/userEdit'
 import GuestCheckout from '../features/checkout/GuestCheckout';
+import Confirmation from '../features/confirmation/Confirmation'
 
 
 /**
@@ -53,6 +54,8 @@ const AppRoutes = () => {
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path='/useredit' element={<EditUser/>}/>
+          <Route path='/confirmation' element={<Confirmation />} />
+
         </Routes>
         ) : (
         <Routes>
@@ -63,6 +66,7 @@ const AppRoutes = () => {
           <Route path="/signup" element={<Register name="signup"/>} />
           <Route path='/cart' element ={<GuestCart/>} />
           <Route path='/guestcheckout' element={<GuestCheckout />} />
+          <Route path='/confirmation' element={<Confirmation />} />
         </Routes>
       )}
 

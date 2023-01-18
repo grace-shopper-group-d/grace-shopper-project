@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const GuestCheckout = () => {
   let cart = window.localStorage.getItem("cart");
@@ -22,7 +23,7 @@ const GuestCheckout = () => {
 
   return (
     <div className="checkoutOuter">
-      <section className="checkoutLeftSection">
+       <section className="checkoutLeftSection">
         <div className="leftSectionTop">
           <h2 className="checkoutTitle">Checkout</h2>
           <h3 className="shippingInfo" onClick={handleToggleShipping}>
@@ -31,41 +32,40 @@ const GuestCheckout = () => {
 
           {toggleShipping ? (
             <form className="checkoutForm">
-              <label>First Name</label>
               <input
                 className="checkoutInput"
                 type="text"
-                placeholder="Enter your first name..."
+                placeholder="FIRST NAME"
               />
-              <label>Last Name</label>
+
               <input
                 className="checkoutInput"
                 type="text"
-                placeholder="Enter your last name..."
+                placeholder="LAST NAME"
               />
-              <label>Shipping Address</label>
+
               <input
                 className="checkoutInput"
                 type="textarea"
-                placeholder="Enter your address..."
+                placeholder="SHIPPING ADDRESS"
               />
-              <label>Zip Code</label>
+
               <input
                 className="checkoutInput"
                 type="text"
-                placeholder="Enter your zip code..."
+                placeholder="ZIP CODE"
               />
-              <label>State</label>
+
               <input
                 className="checkoutInput"
                 type="text"
-                placeholder="Enter your state"
+                placeholder="STATE"
               />
-              <label>Email</label>
+
               <input
                 className="checkoutInput"
                 type="text"
-                placeholder="Enter your email address..."
+                placeholder="EMAIL"
               />
             </form>
           ) : (
@@ -79,25 +79,25 @@ const GuestCheckout = () => {
           </h3>
           {toggleCreditCard ? (
             <form className="creditCardForm">
-              <label className="creditCardInfo">Card Number</label>
               <input
                 className="creditCardInput"
                 type="text"
                 placeholder="Credit Card Number"
               />
-              <label className="creditCardInfo">Card Type</label>
-              <input
-                className="creditCardInput"
-                type="text"
-                placeholder="Type"
-              />
-              <label className="creditCardInfo">Security Code</label>
+              <select>
+                <option value="">Card Type</option>
+                <option value="MasterCard">MasterCard</option>
+                <option value="Visa">Visa</option>
+                <option value="Discover">Discover</option>
+                <option value="American Express">American Express</option>
+              </select>
+
               <input
                 className="creditCardInput"
                 type="text"
                 placeholder="CVV"
               />
-              <label className="creditCardInfo">Expiration Date</label>
+
               <input
                 className="creditCardInput"
                 type="text"
@@ -118,24 +118,19 @@ const GuestCheckout = () => {
           />
           {toggleBilling ? (
             <form className="billingAddress">
-              <label>Address</label>
               <input
                 className="billingInput"
                 type="textarea"
-                placeholder="Enter your address..."
+                placeholder="ADDRESS"
               />
-              <label>Zip Code</label>
+
               <input
                 className="billingInput"
                 type="text"
-                placeholder="Enter your zip code..."
+                placeholder="ZIP CODE"
               />
-              <label>State</label>
-              <input
-                className="billingInput"
-                type="text"
-                placeholder="Enter your state"
-              />
+
+              <input className="billingInput" type="text" placeholder="STATE" />
             </form>
           ) : (
             <></>
@@ -172,7 +167,9 @@ const GuestCheckout = () => {
               .toFixed(2)}
           </h3>
           <h4>Shipping: Free</h4>
-          <button className="checkout-button">CHECKOUT</button>
+          <Link to={`/confirmation`}>
+            <button className="checkout-button">CHECKOUT</button>
+          </Link>
         </section>
       </section>
     </div>

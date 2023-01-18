@@ -12,5 +12,7 @@ const Confirmation = (props)=>{
 
 };
 console.log(Confirmation)
+
+
 export default Confirmation;
 
