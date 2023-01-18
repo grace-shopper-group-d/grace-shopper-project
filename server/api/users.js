@@ -3,7 +3,7 @@ const { User, Products, Cart } = require("../db");
 module.exports = router;
 
 //router to find all users
-router.get("/", async (req, res, next) => {
+router.get('/', async (req, res, next) => {
   try {
     const users = await User.findAll({
       // explicitly select only the id and username fields - even though
@@ -38,7 +38,7 @@ router.post("/", async (req, res, next) => {
 });
 
 //router to delete user based on id
-router.delete("/", async (req, res, next) => {
+router.delete('/:id', async (req, res, next) => {
   try {
     const id = req.params.id;
     await User.destroy({

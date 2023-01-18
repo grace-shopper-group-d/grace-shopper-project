@@ -9,7 +9,7 @@ const AllProducts = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const isAdmin = useSelector((state) => state.auth.me.isAdmin);
   const products = useSelector(selectProducts);
-  
+
   useEffect(() => {
     dispatch(fetchAllProducts());
   }, [dispatch]);
@@ -27,7 +27,7 @@ const AllProducts = () => {
                 </div>
                 <div className="productCardBottom">
                   <h2 className="cardName">{product.name}</h2>
-                  <p className="cardPrice">{product.price}</p>
+                  <p className="cardPrice"> $ {product.price}</p>
                 </div>
               </div>
             </div>
