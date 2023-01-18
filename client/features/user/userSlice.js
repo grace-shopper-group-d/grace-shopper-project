@@ -5,7 +5,6 @@ const initialState = {};
 // fetch user
 export const fetchUserAsync = createAsyncThunk("user", async (id) => {
   try {
-    console.log("this is my thunk id",id)
     const { data } = await axios.get(`/api/users/${id}`);
     return data
   }

@@ -1,9 +1,11 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { authenticate } from '../../app/store';
 
 const Login = ({name}) => {
+  const { error } = useSelector((state) => state.auth);
+    console.log(error)
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
