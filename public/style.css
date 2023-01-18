@@ -451,7 +451,54 @@ nav a:hover {
 }
 
 /* Responsive screen section */
+/* home page section */
+.welcome{
+  display:flex;
+  position: relative;
+  height: 50vh;
+  width: 100vw;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #407076;
+  background: linear-gradient(
+    rgba(255, 255, 255, 0.5),
+    rgba(255, 255, 255, 0.5)
+  ),
+  url("https://kinsta.com/wp-content/uploads/2022/06/open-source-ecommerce.jpg");
 
+}
+
+.message{
+  position: absolute;
+  width: 400px;
+  height: 100px;
+  font-size: 40px;
+  right: 20px;
+  bottom: 60px;
+  font-weight: 400;
+  font-style: oblique;
+  image: url("https://burst.shopifycdn.com/photos/wrist-watches.jpg?width=1200&format=pjpg&exif=1&iptc=1")
+}
+
+.confirmation{
+  display:flex;
+  position: relative;
+  height: 50vh;
+  width: 100vw;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #407076;
+  background: linear-gradient(
+    rgba(255, 255, 255, 0.5),
+    rgba(255, 255, 255, 0.5)
+  ),
+  url("https://kinsta.com/wp-content/uploads/2022/06/open-source-ecommerce.jpg");
+  font-weight: 400;
+  font-style: oblique;
+  font-size: 40px;
+}
 
 
 
