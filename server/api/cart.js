@@ -36,6 +36,8 @@ router.put("/:id", async (req, res, next) => {
 });
 
 
+
+
 router.delete('/:id', async (req, res, next) => {
   try {
     const id = req.params.id
@@ -45,6 +47,17 @@ router.delete('/:id', async (req, res, next) => {
       }
     })
     res.status(204).send(Cart.findByPk(id))
+
+  }
+  catch (error) {
+    next(error)
+  }
+})
+
+
+router.post('/', async (req, res, next) => {
+  try {
+    res.status(201).send(await Cart.create(req.body))
 
   }
   catch (error) {

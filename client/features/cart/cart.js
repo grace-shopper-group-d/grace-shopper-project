@@ -43,7 +43,7 @@ const Cart = () => {
     dispatch(editCartAsync(newCart))
   }
 
-  // handles item delte
+  // handles item delete
   const handleItemDelete = (cartId) => {
     dispatch(deleteCartAsync(cartId));
   }
