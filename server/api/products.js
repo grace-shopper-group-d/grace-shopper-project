@@ -35,7 +35,7 @@ router.post("/", async (req, res, next) => {
 });
 
 //router to delete product based on the id
-router.delete("/", async (req, res, next) => {
+router.delete("/:id", async (req, res, next) => {
   try {
     const id = req.params.id;
     await Products.destroy({

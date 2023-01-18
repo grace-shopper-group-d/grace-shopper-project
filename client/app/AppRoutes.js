@@ -13,7 +13,8 @@ import Checkout from '../features/checkout/Checkout';
 import Cart from '../features/cart/cart';
 import SingleUser from '../features/singleuser/singleUser';
 import userSlice from '../features/user/userSlice';
-import GuestCart from '../features/cart/guestcart';
+import GuestCart from '../features/cart/guestcart'
+import EditUser from '../features/useredit/userEdit'
 
 
 /**
@@ -32,7 +33,7 @@ const AppRoutes = () => {
 
   return (
     <div>
-      {/* {isLoggedIn && isAdmin ? ( */}
+      {isLoggedIn && isAdmin ? (
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
@@ -41,7 +42,7 @@ const AppRoutes = () => {
           <Route path="/users" element={<AllUsers />} />
           <Route path="/users/:userId" element={<SingleUser/>}/>
         </Routes>
-        {/* ) : isLoggedIn ? ( */}
+         ) : isLoggedIn ? (
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
@@ -49,9 +50,9 @@ const AppRoutes = () => {
           <Route path="/products" element={<AllProducts />} />
           <Route path='/products/:productId' element={<SingleProduct/>} />
           <Route path="/cart" element={<Cart />} />
-          <Route path="/checkout" element= {<Checkout />} />
+          <Route path='/useredit' element={<EditUser/>}/>
         </Routes>
-        {/* ) : ( */}
+         ) : (
         <Routes>
           <Route path="/home" element={<Home />} />
           <Route path="/login" element={<Login name="login" />} />
@@ -61,7 +62,7 @@ const AppRoutes = () => {
           <Route path="/checkout" element={<Checkout />} />
           <Route path='/cart' element ={<GuestCart/>} />
         </Routes>
-      {/* )} */}
+      )}
 
     </div>
   );
