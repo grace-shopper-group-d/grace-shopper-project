@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useState } from "react";
 
 const GuestCheckout = () => {
   let cart = window.localStorage.getItem("cart");
