@@ -34,7 +34,18 @@ export const editCartAsync = createAsyncThunk('editCart', async (cart) => {
     return data
   }
   catch (error) {
-    console.log("error in deleteCartAsync")
+    console.log("error in editCartAsync")
+  }
+})
+
+export const addCartAsync = createAsyncThunk('addCart', async (newCart) => {
+  try {
+    console.log(newCart)
+    const { data } = await axios.post(`/api/carts`, newCart);
+    return data
+  }
+  catch (error) {
+    console.log("error in AddCartAsync")
   }
 })
 
@@ -56,6 +67,9 @@ const cartSlice = createSlice({
     });
     builder.addCase(editCartAsync.fulfilled, (state, action) => {
       return action.payload
+    });
+    builder.addCase(addCartAsync.fulfilled, (state, action) => {
+      state.push(action.payload)
     });
   }
 })
