@@ -7,7 +7,7 @@ const AllUsers = () => {
   const dispatch = useDispatch();
 
   const users = useSelector(selectUsers);
-  console.log(users) //shows all Users
+
 
   useEffect(() => {
     dispatch(fetchAllUsers());

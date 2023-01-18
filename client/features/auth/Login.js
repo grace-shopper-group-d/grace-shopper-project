@@ -6,7 +6,7 @@ import { authenticate } from '../../app/store';
 const Login = ({name}) => {
   const { error } = useSelector((state) => state.auth);
   const userId = useSelector((state) => state.auth.id)
-    console.log(error)
+
     const dispatch = useDispatch();
     const navigate = useNavigate();
 

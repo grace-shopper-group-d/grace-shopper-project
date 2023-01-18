@@ -30,7 +30,7 @@ const GuestCart = () => {
     let editedCart = cart.filter(
       (currentProduct) => currentProduct !== product
     );
-    console.log(editedCart);
+  
     window.localStorage.setItem("cart", JSON.stringify(editedCart));
     setRender(!render);
   };

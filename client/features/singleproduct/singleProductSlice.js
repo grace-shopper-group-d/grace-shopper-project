@@ -17,7 +17,7 @@ export const fetchProduct = createAsyncThunk('fetchProduct', async (id) => {
 export const updateProductAsync = createAsyncThunk(
     "updateProduct",
     async (product) => {
-      console.log("product in updateProductAsync", product);
+
       try {
         const { id, name, description, price, imageUrl, quantity } = product;
         const updatedProduct = {
@@ -28,7 +28,7 @@ export const updateProductAsync = createAsyncThunk(
           quantity,
         };
         const { data } = await axios.put(`/api/products/${id}`, updatedProduct);
-        console.log(data, "data in updateProductAsync")
+
         return data;
       } catch (err) {
         console.log(err);

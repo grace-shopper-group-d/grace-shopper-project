@@ -36,7 +36,7 @@ const Navbar = () => {
           <Link className='top-item' to="/products">Products</Link>
           <Link className='top-item' to="/cart">Cart</Link>
           {isLoggedIn ? (
-            <Link className='top-item' to="/useredit">Edit Profile</Link>
+            <Link className='top-item' to="/useredit">Edit</Link>
           ) : null }
           {isLoggedIn && isAdmin ? (
             <div>
@@ -48,7 +48,7 @@ const Navbar = () => {
           {isLoggedIn ? (
             <div>
               {/* The navbar will show these links after you log in */}
-              <span>Welcome {first_Name} {last_Name} </span>
+              {user.first_Name && user.last_Name ? <span>Welcome {user.first_Name} {user.last_Name}</span> : <span>Welcome {first_Name} {last_Name}</span> }
               <button className='logOutButton' type="button" onClick={logoutAndRedirectHome}>
                 Logout
               </button>
