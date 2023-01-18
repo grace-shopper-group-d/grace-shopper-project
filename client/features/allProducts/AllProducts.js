@@ -24,7 +24,6 @@ const AllProducts = () => {
     dispatch(deleteProductAsync(e.target.value));
     navigate("/products");
   };
-  
   return (
     <div className="productsPage">
       {isAdmin && isLoggedIn ? <AddProduct /> : null}{" "}
