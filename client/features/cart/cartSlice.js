@@ -40,7 +40,7 @@ export const editCartAsync = createAsyncThunk('editCart', async (cart) => {
 
 export const addCartAsync = createAsyncThunk('addCart', async (newCart) => {
   try {
-    console.log(newCart)
+
     const { data } = await axios.post(`/api/carts`, newCart);
     return data
   }
