@@ -53,7 +53,7 @@ const productsSlice = createSlice({
         // filters through the state and returns all products that do not match the id of the product that was deleted
         const newState = state.filter(
           (product) => product.id !== parseInt(action.payload)
-        );
+        ); 
         return newState;
       });
   },

@@ -11,7 +11,7 @@ const AddProduct = () => {
   const [imageUrl, setImageUrl] = useState("default.png");
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+ 
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(addProductAsync({ name, description, price, quantity, imageUrl }));
