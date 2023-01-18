@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Confirmation = ()=>{
+const Confirmation = (props)=>{
 
   return(
 
@@ -11,6 +11,6 @@ const Confirmation = ()=>{
   )
 
 };
-
+console.log(Confirmation)
 export default Confirmation;
 
