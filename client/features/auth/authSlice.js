@@ -73,6 +73,7 @@ export const authSlice = createSlice({
     });
     builder.addCase(authenticate.rejected, (state, action) => {
       state.error = action.payload;
+      alert("Wrong Username or Password")
     });
   },
 });
