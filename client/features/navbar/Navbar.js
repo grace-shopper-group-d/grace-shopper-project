@@ -48,7 +48,7 @@ const Navbar = () => {
           {isLoggedIn ? (
             <div>
               {/* The navbar will show these links after you log in */}
-              <span>Welcome {first_Name} {last_Name} </span>
+              {user.first_Name && user.last_Name ? <span>Welcome {user.first_Name} {user.last_Name}</span> : <span>Welcome {first_Name} {last_Name}</span> }
               <button className='logOutButton' type="button" onClick={logoutAndRedirectHome}>
                 Logout
               </button>
