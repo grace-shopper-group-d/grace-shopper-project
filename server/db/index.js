@@ -5,7 +5,7 @@ const User = require("./models/User");
 const Order = require("./models/Orders");
 const Products = require("./models/Products");
 const CreditCard = require("./models/CreditCard");
-const Cart = require("./models/Cart");
+const Cart = require("./models/Cart")
 
 
 User.hasOne(CreditCard);
@@ -26,5 +26,5 @@ module.exports = {
   Order,
   Products,
   CreditCard,
-  Cart,
+  Cart
 };

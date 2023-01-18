@@ -43,7 +43,7 @@ const Cart = () => {
     dispatch(editCartAsync(newCart))
   }
 
-  // handles item delte
+  // handles item delete
   const handleItemDelete = (cartId) => {
     dispatch(deleteCartAsync(cartId));
   }
@@ -59,7 +59,9 @@ const Cart = () => {
 
   return (
     <>
+    <Link to={`/checkout`} >
       <button className='checkout-button'>Proceed To Checkout</button>
+    </Link>
       <h3 id='cart-header' >{`${user.first_Name} ${user.last_Name}`}'s Cart</h3>
       <div id='cart-columns'>
         <div  className='cart-column-photo'>Photo</div>
