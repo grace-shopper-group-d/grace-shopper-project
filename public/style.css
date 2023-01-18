@@ -28,6 +28,7 @@
   border-radius: 27px;
   border: 1px solid #000;
   box-shadow: inset 47px 47px 94px #bebebe, inset -47px -47px 94px #ffffff;
+  padding: 5px;
 }
 .productCard:active {
   transform: scale(0.98);
@@ -65,7 +66,9 @@ nav a {
   display: inline-block;
   margin: 1em;
   /*  this is where we can change the coloring of the login and sign-up  */
-  color: #000;
+  color: #fff;
+  padding:10px 20px;
+  margin: 0 10px;
 }
 
 form div {
@@ -90,14 +93,16 @@ form div {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #000;
+  color: #fff;
 }
 
 .top-item {
   margin: 0 1em;
   text-decoration: none;
   /* where we can adjust the colors for the center nav */
-  color: #000;
+  color: #fff;
+  padding:10px 20px;
+  margin: 0 10px;
 }
 
 .top-right {
@@ -106,16 +111,21 @@ form div {
   align-items: center;
   justify-content: end;
   background-color: #407076;
+}
 
+.signup{
+  border: 1px solid yellow;
+  padding:10px 20px;
+  margin: 0 10px;
 }
 
 /* hover effect for both the login and center nav bar section */
 nav a:hover {
-  color: #698996;
+  background-color: #555;
 }
 
 .top-item:hover {
-  color: #698996;
+  background-color: #555;
 }
 
 .userInfo {
@@ -434,4 +444,6 @@ nav a:hover {
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
 }
+
+/* Responsive screen for nav-bar */
 

@@ -42,7 +42,7 @@ const Navbar = () => {
           <div className='userInfo'>
             {/* The navbar will show these links before you log in */}
             <Link to="/login">Login</Link>
-            <Link to="/signup">Sign Up</Link>
+            <Link to="/signup" className='signup'>Sign Up</Link>
           </div>
         )}
       </nav>
