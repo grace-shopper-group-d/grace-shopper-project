@@ -30,25 +30,23 @@ const Navbar = () => {
             </div>
           ) : null}
         </div>
-      ) : null}
-      </div>
-      <nav className='top-right'>
-        {isLoggedIn ? (
-          <div>
-            {/* The navbar will show these links after you log in */}
-            <span>Welcome {first_Name} {last_Name} </span>
-            <button className='logOutButton' type="button" onClick={logoutAndRedirectHome}>
-              Logout
-            </button>
-          </div>
-        ) : (
-          <div className='userInfo'>
-            {/* The navbar will show these links before you log in */}
-            <Link to="/login">Login</Link>
-            <Link to="/signup" className='signup'>Sign Up</Link>
-          </div>
-        )}
-      </nav>
+        <nav className='top-right'>
+          {isLoggedIn ? (
+            <div>
+              {/* The navbar will show these links after you log in */}
+              <span>Welcome {first_Name} {last_Name} </span>
+              <button className='logOutButton' type="button" onClick={logoutAndRedirectHome}>
+                Logout
+              </button>
+            </div>
+          ) : (
+            <div className='userInfo'>
+              {/* The navbar will show these links before you log in */}
+              <Link to="/login">Login</Link>
+              <Link to="/signup" className='signup'>Sign Up</Link>
+            </div>
+          )}
+        </nav>
       </div>
       <hr />
     </div>
