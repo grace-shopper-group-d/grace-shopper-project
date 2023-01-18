@@ -30,8 +30,6 @@ const Navbar = () => {
             </div>
           ) : null}
         </div>
-      ) : null}
-      </div>
       <nav className='top-right'>
         {isLoggedIn ? (
           <div>
