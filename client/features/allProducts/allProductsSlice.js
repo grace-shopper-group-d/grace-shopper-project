@@ -26,6 +26,7 @@ export const addProductAsync = createAsyncThunk("addProduct", async (product) =>
 
 //this deletes a product from the database
 export const deleteProductAsync = createAsyncThunk("deleteProduct", async (id) => {
+    console.log(id, "id from deleteProductAsync")
   try {
     const { data } = await axios.delete(`/api/products/${id}`, id);
     console.log(data, "data from deleteProductAsync")
@@ -34,7 +35,6 @@ export const deleteProductAsync = createAsyncThunk("deleteProduct", async (id) =
     console.log(error);
   }
 });
-
 
 const productsSlice = createSlice({
   name: "products",
@@ -48,8 +48,11 @@ const productsSlice = createSlice({
       state.push(action.payload);
     }),
     builder.addCase(deleteProductAsync.fulfilled, (state, action) => {
-      const deleteState = state.filter((product) => product.id !== action.payload.id)
-      return deleteState
+      console.log(action.payload.id, "action payload in deleteProductAsync")
+      // filters through the state and returns all products that do not match the id of the product that was deleted
+      const newState = state.filter(product => product.id !== action.payload.id)
+      console.log(newState, "newState in deleteProductAsync")
+      return newState
     });
   },
 });

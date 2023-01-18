@@ -1,18 +1,26 @@
 import React, { useEffect } from "react";
-import { fetchAllProducts, selectProducts } from "./allProductsSlice";
+import { fetchAllProducts, selectProducts, deleteProductAsync } from "./allProductsSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AddProduct from "../addProduct/AddProduct";
 
 const AllProducts = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const isAdmin = useSelector((state) => state.auth.me.isAdmin);
   const products = useSelector(selectProducts);
+  console.log(products, "all products in ")
   
   useEffect(() => {
     dispatch(fetchAllProducts());
   }, [dispatch]);
+
+  const handleDelete = (e) => {
+    e.preventDefault();
+    dispatch(deleteProductAsync(e.target.value))
+    navigate('/products')
+    }
 
   return (
     <div className="productsPage">
@@ -21,16 +29,25 @@ const AllProducts = () => {
         return (
           <Link to={`/products/${product.id}`}>
             <div className="productCard" key={product.id}>
-              <div className="productCardInner">
-                <div className="cardImage">
+              <div className="productCardInner" >
+                <div className="cardImage" >
                   <img src={`/${product.imageUrl}`} />
                 </div>
                 <div className="productCardBottom">
-                  <h2 className="cardName">{product.name}</h2>
-                  <p className="cardPrice">{product.price}</p>
+                  <h2 className="cardName" >{product.name}</h2>
+                  <p className="cardPrice" >{product.price}</p>
                 </div>
               </div>
             </div>
+            {isAdmin && isLoggedIn ? (
+                    <button
+                      className="deleteButton"
+                      value={product.id}
+                      onClick={handleDelete}
+                    >
+                      Delete
+                    </button>
+                  ) : null}
           </Link>
         );
       })}
