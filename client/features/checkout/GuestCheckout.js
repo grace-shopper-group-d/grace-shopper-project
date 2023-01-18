@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const GuestCheckout = () => {
   let cart = window.localStorage.getItem("cart");
@@ -172,7 +173,9 @@ const GuestCheckout = () => {
               .toFixed(2)}
           </h3>
           <h4>Shipping: Free</h4>
-          <button className="checkout-button">CHECKOUT</button>
+          <Link to={`/confirmation`}>
+            <button className="checkout-button">CHECKOUT</button>
+          </Link>
         </section>
       </section>
     </div>

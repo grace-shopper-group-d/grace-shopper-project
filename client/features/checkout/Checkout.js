@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchUserAsync, selectUser } from "../user/userSlice";
 import { fetchCartAsync, selectCart } from "../cart/cartSlice";
-import { Navigate } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 
 const Checkout = () => {
   const userId = useSelector((state) => state.auth.me.id);
@@ -166,7 +165,9 @@ const Checkout = () => {
             .toFixed(2)}
         </h3>
         <h4>Shipping: Free</h4>
+        <Link to={`/confirmation`}>
         <button className="checkout-button">CHECKOUT</button>
+        </Link>
         </section>
       </section>
     </div>
