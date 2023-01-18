@@ -41,10 +41,13 @@ const AppRoutes = () => {
           <Route path="/home" element={<Home />} />
           <Route path="/products" element={<AllProducts />} />
           <Route path="/products/:productId" element={<SingleProduct/>} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path='/useredit' element={<EditUser/>}/>
           <Route path="/users" element={<AllUsers />} />
           <Route path="/users/:userId" element={<SingleUser/>}/>
         </Routes>
-         ) : isLoggedIn ? (
+         ) : isLoggedIn ? ( 
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
@@ -57,7 +60,7 @@ const AppRoutes = () => {
           <Route path='/confirmation' element={<Confirmation />} />
 
         </Routes>
-        ) : (
+        ) : ( 
         <Routes>
           <Route path="/home" element={<Home />} />
           <Route path="/login" element={<Login name="login" />} />
@@ -69,7 +72,6 @@ const AppRoutes = () => {
           <Route path='/confirmation' element={<Confirmation />} />
         </Routes>
       )}
-
     </div>
   );
 };
