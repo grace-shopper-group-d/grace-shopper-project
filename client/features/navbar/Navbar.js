@@ -30,7 +30,7 @@ const Navbar = () => {
             </div>
           ) : null}
         </div>
-          <nav className='top-right'>
+      <nav className='top-right'>
         {isLoggedIn ? (
           <div>
             {/* The navbar will show these links after you log in */}

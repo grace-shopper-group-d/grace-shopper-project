@@ -7,14 +7,11 @@ import { Navigate } from "react-router-dom";
 
 const Checkout = () => {
   const userId = useSelector((state) => state.auth.me.id);
-  console.log("this is my user ID", userId);
 
   const userCart = useSelector(selectCart);
-  console.log("THIS IS THE USER CART", userCart);
 
   let user = useSelector(selectUser);
   let userProducts = user.products;
-  console.log("this is my user products", userProducts);
 
   const [toggleShipping, setToggle] = useState(false)
   const [toggleCreditCard, setToggleCreditCard] = useState(false)

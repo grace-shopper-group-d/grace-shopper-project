@@ -15,6 +15,7 @@ import SingleUser from '../features/singleuser/singleUser';
 import userSlice from '../features/user/userSlice';
 import GuestCart from '../features/cart/guestcart'
 import EditUser from '../features/useredit/userEdit'
+import GuestCheckout from '../features/checkout/GuestCheckout';
 
 
 /**
@@ -50,17 +51,18 @@ const AppRoutes = () => {
           <Route path="/products" element={<AllProducts />} />
           <Route path='/products/:productId' element={<SingleProduct/>} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
           <Route path='/useredit' element={<EditUser/>}/>
         </Routes>
-         ) : (
+        ) : (
         <Routes>
           <Route path="/home" element={<Home />} />
           <Route path="/login" element={<Login name="login" />} />
           <Route path="/products" element={<AllProducts />} />
           <Route path="/products/:productId" element={<SingleProduct/>} />
           <Route path="/signup" element={<Register name="signup"/>} />
-          <Route path="/checkout" element={<Checkout />} />
           <Route path='/cart' element ={<GuestCart/>} />
+          <Route path='/guestcheckout' element={<GuestCheckout />} />
         </Routes>
       )}
 
