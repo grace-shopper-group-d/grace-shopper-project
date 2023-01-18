@@ -22,7 +22,6 @@ const Navbar = () => {
           <Link className='top-item' to="/home">Home</Link>
           <Link className='top-item' to="/products">Products</Link>
           <Link className='top-item' to="/cart">Cart</Link>
-          <Link className='top-item' to="/orders">Orders</Link>
           <Link className='top-item' to="/useredit">Edit</Link>
           {isLoggedIn && isAdmin ? (
             <div>
