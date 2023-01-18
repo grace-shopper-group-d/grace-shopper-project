@@ -13,7 +13,8 @@ import Checkout from '../features/checkout/Checkout';
 import Cart from '../features/cart/cart';
 import SingleUser from '../features/singleuser/singleUser';
 import userSlice from '../features/user/userSlice';
-import GuestCart from '../features/cart/guestcart';
+import GuestCart from '../features/cart/guestcart'
+import EditUser from '../features/useredit/userEdit'
 
 
 /**
@@ -49,7 +50,7 @@ const AppRoutes = () => {
           <Route path="/products" element={<AllProducts />} />
           <Route path='/products/:productId' element={<SingleProduct/>} />
           <Route path="/cart" element={<Cart />} />
-          <Route path="/checkout" element= {<Checkout />} />
+          <Route path='/useredit' element={<EditUser/>}/>
         </Routes>
         {/* ) : ( */}
         <Routes>

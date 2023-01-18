@@ -38,7 +38,7 @@ router.post("/", async (req, res, next) => {
 });
 
 //router to delete user based on id
-router.delete("/", async (req, res, next) => {
+router.delete('/:id', async (req, res, next) => {
   try {
     const id = req.params.id;
     await User.destroy({

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { logout } from '../../app/store';
@@ -17,15 +17,18 @@ const Navbar = () => {
   return (
     <div className="top">
       <div className="top-left">
-      <h1>GraceShopper</h1>
-      <div className='top-center'>
-      <Link className='top-item' to="/home">Home</Link>
-      <Link className='top-item' to="/products">Products</Link>
-      <Link className='top-item' to="/cart">Cart</Link>
-      <Link className='top-item' to="/orders">Orders</Link>
-      {isLoggedIn && isAdmin ? (
-        <div>
-          <Link className='top-item' to="/users">Users</Link>
+        <h1>GraceShopper</h1>
+        <div className='top-center'>
+          <Link className='top-item' to="/home">Home</Link>
+          <Link className='top-item' to="/products">Products</Link>
+          <Link className='top-item' to="/cart">Cart</Link>
+          <Link className='top-item' to="/orders">Orders</Link>
+          <Link className='top-item' to="/useredit">Edit</Link>
+          {isLoggedIn && isAdmin ? (
+            <div>
+              <Link className='top-item' to="/users">Users</Link>
+            </div>
+          ) : null}
         </div>
       ) : null}
       </div>

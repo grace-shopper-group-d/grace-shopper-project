@@ -26,6 +26,23 @@ export const removeUserItemAsync = createAsyncThunk('removeItem', async (userId,
   }
 })
 
+export const editUser = createAsyncThunk('editUser', async (updatedUser) => {
+  try {
+    const id = updatedUser.id
+    const { data } = await axios.put(`/api/users/${id}`, {
+      first_Name: updatedUser.first_Name,
+      last_Name: updatedUser.last_Name,
+      address: updatedUser.address,
+      email: updatedUser.email,
+      telephone: updatedUser.telephone
+    });
+    return data;
+  }
+  catch (err) {
+    console.log(err);
+  }
+})
+
 const userSlice = createSlice({
   name: "user",
   initialState,
@@ -37,6 +54,9 @@ const userSlice = createSlice({
     builder.addCase(removeUserItemAsync.fulfilled, (state, action) => {
       return action.payload
     });
+    builder.addCase(editUser.fulfilled, (state, action) => {
+      return action.payload
+    })
   }
 })
 
