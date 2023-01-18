@@ -11,7 +11,7 @@ const Checkout = () => {
 
   let user = useSelector(selectUser);
   let userProducts = user.products;
-
+  
   const [toggleShipping, setToggle] = useState(false);
   const [toggleCreditCard, setToggleCreditCard] = useState(false);
   const [toggleBilling, setToggleBilling] = useState(true);
