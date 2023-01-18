@@ -494,3 +494,85 @@ nav a:hover {
   font-style: oblique;
   font-size: 40px;
 }
+
+
+
+
+
+/* single product styling */
+
+.single-product {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+.single-product-container {
+  display: flex;
+  width: 65%;
+  text-align: center;
+}
+
+
+.single-product-container-left {
+  width: 65%;
+
+}
+
+
+.single-product-container-right {
+  display: flex;
+  width: 35%;
+  text-align: left;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+}
+
+
+.single-product-name {
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.single-product-price {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: red
+}
+
+.single-product-description {
+  font-style: italic;
+  margin-top: 35px;
+  font-size: 1rem;
+}
+
+
+.add-to-cart {
+  margin-top: 20px;
+  border: 0;
+  line-height: 2.5;
+  padding: 0 20px;
+  font-size: 1rem;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  text-shadow: 1px 1px 1px rgb(70, 70, 70);
+  border-radius: 10px;
+  background-color: yellow;
+  background-image: linear-gradient(
+    to top left,
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.2) 30%,
+    rgba(0, 0, 0, 0)
+  );
+  box-shadow: inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+    inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+}
+
+.add-to-cart:hover {
+  background-color:green;
+}
+
+.add-to-cart:active {
+  box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6),
+    inset 2px 2px 3px rgba(0, 0, 0, 0.6);
